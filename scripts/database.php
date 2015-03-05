@@ -1,15 +1,19 @@
 <?php
 
-	function getDatabase() {
+class Database {
 
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "jan_motors";
+	private $servername = "localhost";
+	private $username = "root";
+	private $password = "";
+	private $dbname = "business_listings";
+	private $db;
+
+	// constructor to call when an object is created
+	public function __construct() {
 
 		try {
-		    $db = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-		    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		    $this->db = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
+		    $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		}
 		catch(PDOException $e){
@@ -17,40 +21,61 @@
 		    echo "Connection failed: " . $e->getMessage();
 		}
 		
-		return $db;
 	}
 
-	function checkLogin($db, $username, $password) {
+	public function __destruct() {
 
-		$sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+		$this->db = null;
+	}
+
+	public function runQuery($sql) {
+
+		$query = $this->db->query($sql);
 		
-		$query = $db->query($sql);
+		$result = $query->fetchAll(PDO::FETCH_OBJ);
+
+		return $result;
+	}
+	
+	public function checkLogin($username, $password) {
+
+		$sql = "SELECT * FROM users WHERE username = '$username'";
+		
+		$query = $this->db->query($sql);
 		
 		$result = $query->fetch(PDO::FETCH_OBJ);
-		
-		if ($result) {
-		
-			return true;
-		
-		} 
 
+		if ($result) {
+			
+			// compare password with the one stored in the database
+			// return TRUE if matches, otherwise FALSE
+			return password_verify($password,$result->password);
+		}
+		
 		return false;
 	}
+	
+	public function register($username, $password) {
 
-	function register($db, $username, $password) {
+		// hash password before storing it in the database
+		$password = password_hash($password, PASSWORD_DEFAULT);
 
 		$sql = "INSERT INTO users(username, password) VALUES ('$username', '$password') ";
 
 
 		try {
 		
-			$db->exec($sql);
+			$this->db->exec($sql);
 		
 		} catch(PDOException $e) {
 
-		    return false;
+		    echo "Registration failed: " . $e->getMessage();
   		}
 
 		return true;
 	}
+}
+
+
+
 ?>

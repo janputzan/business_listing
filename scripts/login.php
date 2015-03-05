@@ -4,10 +4,10 @@
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$db = getDatabase();
+	$db = new Database;
 
 	
-	if (checkLogin($db, $username, $password)) {
+	if ($db->checkLogin($username, $password)) {
 
 		echo 'logged in';
 	} else {
