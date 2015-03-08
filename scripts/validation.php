@@ -4,7 +4,7 @@ class Validation {
 
 	static public function register($username, $password) {
 
-		if ( ( strlen($username) >= 5 && strlen($username) <= 30 ) && ( strlen($password) > 5 && strlen($password) < 30 ) ) {
+		if ( between($username, 3, 30) && between($password, 5, 30) ) {
 
 			return true;
 		} 
@@ -12,4 +12,16 @@ class Validation {
 		return false;
 	}
 
+
+
+}
+
+function between($value, $min, $max) {
+
+	if (strlen($value) >= $min && strlen($value) <= $max) {
+
+		return true;
+	}
+
+	return false;
 }
