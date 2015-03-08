@@ -1,8 +1,7 @@
 <?php
 
-	require_once("database.php");
-	require_once("validation.php");
 	require_once("User.php");
+	require_once("Validation.php");
 
 	// get input from the form and trim it from trailing empyy spaces
 	$username = trim($_POST['username']);
@@ -14,10 +13,10 @@
 	// check if input passes the validation
 	if (Validation::register($username, $password)) {
 
-		$db = new Database;
+		$user = new User;
 
 
-		if ($db->register($username, $password)) {
+		if ($user->save($username, $password)) {
 
 			echo 'registered';
 		

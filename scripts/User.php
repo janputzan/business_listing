@@ -1,36 +1,84 @@
 <?php
 
-require_once("database.php");
+require_once("Model.php");
 
-class User extends Database {
+class User extends Model{
 
-	private $table = 'users';
-	
 	public function __construct() {
 
 		parent::__construct();
 	}
 
-	public function createNew() {
-
-	}
-
-	public function where($name, $value) {
-
-		$sql = "SELECT * FROM $this->table WHERE $name = '$value'";
-		
-		$result = $this->runQuery($sql);
-
-		return $result;
-	}
-
-	public function getAll() {
-
-		$sql = "SELECT * FROM users";
-
-		$result = $this->runQuery($sql);
-
-		return $result;
-	}
 	
+	/**
+	 * Compare username and password
+	 *
+	 * @param  string  $username
+	 * @param  string  $password
+	 * 
+	 * @return boolean
+	 */
+
+	public function checkLogin($username, $password) {
+
+		$sql = "SELECT * FROM users WHERE username = '$username'";
+		
+		$user = $this->one($sql);
+
+		if ($user) {
+			
+			return password_verify($password,$user->password);
+		}
+		
+		return false;
+	}
+
+	/**
+	 * Save user to database
+	 *
+	 * @param  string  $username
+	 * @param  string  $password
+	 * 
+	 * @return boolean
+	 */
+
+	public function save($username, $password) {
+
+		// hash password before storing it in the database
+		$password = password_hash($password, PASSWORD_DEFAULT);
+		$username = $username;
+
+		$sql = "INSERT INTO $this->table (username, password) VALUES ('$username', '$password') ";
+
+		if ($this->execute($sql)) {
+
+			return true;
+		}
+
+		return false;
+	}
+
+	/**
+	 * Changes password for user with a specific id
+	 *
+	 * @param  int  	$id
+	 * @param  string  	$password
+	 * 
+	 * @return boolean
+	 */
+
+	public function changePassword($id, $password) {
+
+		$password = password_hash($password, PASSWORD_DEFAULT);
+
+		$sql = "UPDATE $this->table SET password = '$password' WHERE id = '$id'";
+
+		if ($this->execute($sql)) {
+
+			return true;
+		}
+
+		return false;
+	}
+
 }

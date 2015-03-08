@@ -1,13 +1,13 @@
 <?php
 
-	require_once("database.php");
+	require_once("User.php");
 
 	$username = $_POST['username'];
 	$password = $_POST['password'];
-	$db = new Database;
+	$user = new User;
 
 	
-	if ($db->checkLogin($username, $password)) {
+	if ($user->checkLogin($username, $password)) {
 
 		echo 'logged in';
 	} else {
