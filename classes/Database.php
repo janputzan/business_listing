@@ -7,14 +7,31 @@
 */
 class Database {
 
-	private $servername = "localhost";
-	private $username = "root";
-	private $password = "";
-	private $dbname = "business_listings";
+	private $servername;
+	private $username;
+	private $password;
+	private $dbname;
 	private $connection;
 
 	// constructor to call when an object is created
 	public function __construct() {
+
+		// settings for local/remote environment
+		if (App::isLocal()) {
+
+			$this->servername = "localhost";
+			$this->username = "root";
+			$this->password = "";
+			$this->dbname = "business_listings";
+
+		} else {
+
+			$this->servername = "lochnagar.abertay.ac.uk";
+			$this->username = "sql1405776";
+			$this->password = "PEk0Ub9v";
+			$this->dbname = "sql1405776";
+			
+		}
 
 		try {
 		    $this->connection = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);

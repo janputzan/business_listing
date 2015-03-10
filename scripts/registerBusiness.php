@@ -5,10 +5,7 @@
 
 	// get input from the form and trim it from trailing empyy spaces
 
-	foreach ($_POST as $key => $value) {
-		
-		$input[$key] = $value;
-	}
+	$input = array_map('trim', $_POST);
 
 	// check if input passes the validation
 	if (Validation::registerBusiness($input)) {
@@ -25,11 +22,6 @@
 
 			echo 'registered';
 
-			if ($business->setActive(1, 1)) {
-
-				echo ' set active';
-			}
-		
 		} else {
 
 			echo 'not registered';

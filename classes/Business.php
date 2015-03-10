@@ -29,18 +29,9 @@ class Business extends Model{
 
 	public function save($input, $settings) {
 
-		$name = $input['name'];
-		$address_1 = $input['address_1'];
-		$address_2 = $input['address_2'] ?: null;
-		$city = $input['city'];
-		$postcode = $input['postcode'];
-		$tel = $input['tel'] ?: null;
-		$url = $input['url'] ?: null;
-		$info = $input['info'];
-		$user_id = $settings['user_id'];
-		$category_id = $settings['category_id'];
-		$is_premium = $settings['is_premium'];
-		$is_active = $settings['is_active'];
+		extract($input);
+
+		extract($settings);
 
 		$sql = "INSERT INTO $this->table (name, address_1, address_2, city, postcode, tel, url, info, user_id, category_id, is_premium, is_active) 
 					VALUES ('$name', '$address_1', '$address_2', '$city', '$postcode', '$tel', '$url', '$info', '$user_id', '$category_id', '$is_premium', '$is_active') ";

@@ -3,15 +3,10 @@
 	require('../App.php');
 	App::start();
 
-	foreach ($_POST as $key => $value) {
-		
-		$input[$key] = $value;
-	}
-
 	$user = new User;
 
 	
-	if ($user->checkLogin($input)) {
+	if ($user->checkLogin($_POST)) {
 
 		echo 'logged in';
 	} else {
