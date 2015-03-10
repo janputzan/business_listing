@@ -1,7 +1,5 @@
 <?php
 
-require_once("Database.php");
-
 abstract class Model extends Database {
 
 

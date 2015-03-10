@@ -67,6 +67,14 @@ class Database {
 		return $result;
 	}
 
+	/**
+	 * Execute a query and return boolean
+	 *
+	 * @param  string  $sql
+	 * 
+	 * @return boolean
+	 */
+
 	public function execute($sql) {
 
 		try {
@@ -83,25 +91,6 @@ class Database {
 		return true;	
 	}
 	
-	// public function register($username, $password) {
-
-	// 	// hash password before storing it in the database
-	// 	$password = password_hash($password, PASSWORD_DEFAULT);
-
-	// 	$sql = "INSERT INTO users(username, password) VALUES ('$username', '$password') ";
-
-
-	// 	try {
-		
-	// 		$this->connection->exec($sql);
-		
-	// 	} catch(PDOException $e) {
-
-	// 	    echo "Registration failed: " . $e->getMessage();
- //  		}
-
-	// 	return true;
-	// }
 }
 
 

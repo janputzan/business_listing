@@ -1,7 +1,5 @@
 <?php
 
-require_once("Model.php");
-
 class User extends Model{
 
 	public function __construct() {
@@ -19,9 +17,12 @@ class User extends Model{
 	 * @return boolean
 	 */
 
-	public function checkLogin($username, $password) {
+	public function checkLogin($input) {
 
-		$sql = "SELECT * FROM users WHERE username = '$username'";
+		$email = $input['email'];
+		$password = $input['password'];
+
+		$sql = "SELECT * FROM users WHERE email = '$email'";
 		
 		$user = $this->one($sql);
 
@@ -42,13 +43,15 @@ class User extends Model{
 	 * @return boolean
 	 */
 
-	public function save($username, $password) {
+	public function save($input) {
 
 		// hash password before storing it in the database
-		$password = password_hash($password, PASSWORD_DEFAULT);
-		$username = $username;
+		$first_name = $input['first_name'];
+		$last_name = $input['last_name'];
+		$email = $input['email'];
+		$password = password_hash($input['password'], PASSWORD_DEFAULT);
 
-		$sql = "INSERT INTO $this->table (username, password) VALUES ('$username', '$password') ";
+		$sql = "INSERT INTO $this->table (first_name, last_name, email, password) VALUES ('$first_name', '$last_name', '$email', '$password')";
 
 		if ($this->execute($sql)) {
 

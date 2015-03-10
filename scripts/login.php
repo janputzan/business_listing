@@ -1,13 +1,17 @@
 <?php
 
-	require_once("User.php");
+	require('../App.php');
+	App::start();
 
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+	foreach ($_POST as $key => $value) {
+		
+		$input[$key] = $value;
+	}
+
 	$user = new User;
 
 	
-	if ($user->checkLogin($username, $password)) {
+	if ($user->checkLogin($input)) {
 
 		echo 'logged in';
 	} else {
