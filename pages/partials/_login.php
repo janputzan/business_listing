@@ -5,7 +5,7 @@
 		<div class="input-field">
 
 			<?php echo Form::label('email', 'Email: '); ?>
-			<?php echo Form::email(); ?>
+			<?php echo Form::text('email'); ?>
 			<?php echo Form::error('email'); ?>
 
 		</div>

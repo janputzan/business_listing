@@ -48,49 +48,54 @@ class Validation {
 
 		if (!between($name, 3, 30)) {
 
-			Message::set(array('name' => 'First Name must be between 3 and 30 characters long'), 'errors');
+			Message::set(array('name' => 'Business Name must be between 3 and 30 characters long'), 'errors');
+
+			$check = false;
+		}
+		if (!isUnique($name, 'name', 'businesses')) {
+
+			Message::set(array('name' => 'This Business Name is already in use, please log in'), 'errors');
 
 			$check = false;
 		}
 		if (!between($address_1, 3, 30)) {
 
-			Message::set(array('address_1' => 'Last Name must be between 3 and 30 characters long'), 'errors');
+			Message::set(array('address_1' => 'Address must be between 3 and 30 characters long'), 'errors');
 
 			$check = false;
 		}
-		if (!filter_var($address_1, FILTER_VALIDATE_EMAIL)) {
+		if (!between($city, 3, 30)) {
 
-			Message::set(array('address_1' => 'You email must be valid'), 'errors');
-
-			$check = false;
-		}
-		if (!isUnique($city, 'email', 'users')) {
-
-			Message::set(array('city' => 'This email is already in use, please log in'), 'errors');
+			Message::set(array('city' => 'City must be between 3 and 30 characters long'), 'errors');
 
 			$check = false;
 		}
-		if (!between($postcode, 8, 30)) {
+		if (!between($postcode, 6, 10)) {
 
-			Message::set(array('postcode' => 'Password must be between 8 and 30 characters'), 'errors');
-
-			$check = false;
-		}
-		if (!between($tel, 8, 30)) {
-
-			Message::set(array('tel' => 'Password must be between 8 and 30 characters'), 'errors');
+			Message::set(array('postcode' => 'Postcode must be between 6 and 10 characters'), 'errors');
 
 			$check = false;
 		}
-		if (!between($url, 8, 30)) {
+		if ($tel != '') {
+			if (!is_numeric($tel)) {
 
-			Message::set(array('url' => 'Password must be between 8 and 30 characters'), 'errors');
+				Message::set(array('tel' => 'Phone must be a number'), 'errors');
 
-			$check = false;
+				$check = false;
+			}
 		}
-		if (!between($info, 8, 30)) {
+		if ($url != '') {
 
-			Message::set(array('info' => 'Password must be between 8 and 30 characters'), 'errors');
+			if (!filter_var($url, FILTER_VALIDATE_URL)) {
+
+				Message::set(array('url' => 'Must be a valid URL'), 'errors');
+
+				$check = false;
+			}
+		}
+		if (!between($info, 8, 500)) {
+
+			Message::set(array('info' => 'Info must be between 8 and 500 characters'), 'errors');
 
 			$check = false;
 		}

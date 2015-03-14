@@ -2,6 +2,11 @@
 
 class Message {
 	
+	/**
+	 * Function generator for validation messages  from $_SESSION
+	 *
+	 * @return Generator object
+	 */
 	public static function errors() {
 
 		if (isset($_SESSION['errors'])) {
@@ -13,6 +18,11 @@ class Message {
 		}
 	}
 
+	/**
+	 * Function generator for system messages from $_SESSION
+	 *
+	 * @return Generator object
+	 */
 	public static function messages() {
 
 		if (isset($_SESSION['messages'])) {
@@ -24,6 +34,14 @@ class Message {
 		}
 	}
 
+	/**
+	 * Function to set messages into $_SESSION
+	 *
+	 * @param  mixed  $message
+	 * @param  string  $type
+	 * 
+	 * @return void
+	 */
 	public static function set($message, $type) {
 
 		if (is_array($message)) {
@@ -37,12 +55,15 @@ class Message {
 			$_SESSION[$type]['message'] = $message;
 		}
 
-		return false;
 	}
 
+	/**
+	 * Function to reset system messages
+	 *
+	 * @return void
+	 */
 	public static function flash() {
 
-		// $_SESSION['errors'] = array();
 		$_SESSION['messages'] = array();
 	}
 }

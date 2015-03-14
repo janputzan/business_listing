@@ -11,6 +11,7 @@
 	} else {
 
 		Message::set(array('message' => 'Wrong credentials. Try again.'), 'messages');
+		$_SESSION['input-old'] = $_POST;
 		header("Location: {$_SERVER['HTTP_REFERER']}");
 	}
 

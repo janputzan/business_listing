@@ -61,7 +61,7 @@
 		<div class="input-field">
 
 			<?php echo Form::label('info', 'Description'); ?>
-			<?php echo Form::text('info'); ?>
+			<?php echo Form::textarea('info'); ?>
 			<?php echo Form::error('info'); ?>
 
 		</div>

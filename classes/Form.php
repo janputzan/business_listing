@@ -84,7 +84,7 @@ class Form {
 			$class = 'validate';
 		}
 
-		return '<input type="text" id="'.$name.'" class="'.$class.'" name="'.$name.'">'."\n";
+		return '<input type="text" id="'.$name.'" class="'.$class.'" name="'.$name.'" value="'.getValue($name).'">'."\n";
 	}
 
 	/**
@@ -96,32 +96,9 @@ class Form {
 	 * 
 	 * @return string
 	 */
-	static public function textarea($name, $class = null) {
+	static public function textarea($name) {
 
-		if (!$class) {
-
-			$class = '';
-		}
-
-		return '<textarea id="'.$name.'" class="'.$class.'" name="'.$name.'"></textarea>'."\n";
-	}
-
-	/**
-	 * Function to create an input type email tag
-	 *
-	 * @param  string  $class
-	 * @param  string  $placeholder
-	 * 
-	 * @return string
-	 */
-	static public function email($class = null) {
-
-		if (!$class) {
-
-			$class = '';
-		}
-
-		return '<input type="email" id="email" class="'.$class.'" name="email">'."\n";
+		return '<textarea id="'.$name.'" class="materialize-textarea" name="'.$name.'" value="'.getValue($name).'"></textarea>'."\n";
 	}
 
 	/**
@@ -168,4 +145,26 @@ class Form {
 
 		return '<input type="submit" class="'.$class.'" value="'.$value.'">'."\n";
 	}
+}
+
+
+/**
+ * Helper Function to get old input value stored in $_SESSION
+ *
+ * @param  string  $name
+ * 
+ * @return string
+ */
+function getValue($name) {
+
+	$value = '';
+
+	if (isset($_SESSION['input-old'][$name])) {
+
+		$value = $_SESSION['input-old'][$name];
+
+		unset($_SESSION['input-old'][$name]);
+	}
+
+	return $value;
 }
