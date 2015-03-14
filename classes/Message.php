@@ -3,35 +3,43 @@
 class Message {
 	
 	/**
-	 * Function generator for validation messages  from $_SESSION
+	 * Function for returning validation messages  from $_SESSION
 	 *
 	 * @return Generator object
 	 */
 	public static function errors() {
 
+		$errors = array();
+
 		if (isset($_SESSION['errors'])) {
 
 			foreach ($_SESSION['errors'] as $key => $value) {
 				
-				yield $errors[$key] = $value;
+				$errors[$key] = $value;
 			}
 		}
+
+		return $errors;
 	}
 
 	/**
-	 * Function generator for system messages from $_SESSION
+	 * Function for returning system messages from $_SESSION
 	 *
 	 * @return Generator object
 	 */
 	public static function messages() {
 
+		$messages = array();
+
 		if (isset($_SESSION['messages'])) {
 
 			foreach ($_SESSION['messages'] as $key => $value) {
 				
-				yield $messages[$key] = $value;
+				$messages[$key] = $value;
 			}
 		}
+
+		return $messages;
 	}
 
 	/**
