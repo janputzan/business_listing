@@ -2,6 +2,11 @@
 
 	require_once('../App.php');
 	App::start();
+
+	if (Auth::check()) {
+
+		header("Location: homePage.php");
+	}
 	
 ?>
 
@@ -16,7 +21,11 @@
 </head>
 <body>
 
+	<?php include('partials/_navBar.php'); ?>
+	<?php include('partials/_flash.php'); ?>
+
 	<div class="container">
+
 
 		<?php include('partials/_login.php'); ?>
 

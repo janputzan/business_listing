@@ -2,7 +2,6 @@
 
 	require_once('../App.php');
 	App::start();
-	
 ?>
 
 <!DOCTYPE html>
@@ -15,16 +14,16 @@
 	
 </head>
 <body>
+	
+	<?php include('partials/_navBar.php'); ?>
+	<?php include('partials/_flash.php'); ?>
 
 	<div class="container">
-
-		<a href="loginPage.php">log in</a>
-		<a href="registerPage.php">register</a>
-		<a href="registerBusinessPage.php">register business</a>
 
 	</div>
 
 	<?php echo Asset::scripts(); ?>
 
+	
 </body>
 </html>

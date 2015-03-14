@@ -14,6 +14,7 @@ class Asset {
 
 		// default values
 		$output = '<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+					<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
 					<script type="text/javascript" src="../public/js/app.js"></script>';
 
 		if ($js) {
@@ -39,6 +40,7 @@ class Asset {
 
 		// default values
 		$output = '<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css">
 					<link rel="stylesheet" type="text/css" href="../public/css/styles.css">';
 
 		if ($css) {

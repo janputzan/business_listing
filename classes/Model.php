@@ -36,7 +36,7 @@ abstract class Model extends Database {
 
 	public function findOne($id) {
 
-		$sql = "SELECT * FROM $this->table WHERE id = '$id";
+		$sql = "SELECT * FROM $this->table WHERE id = '$id'";
 
 		return $this->one($sql);
 	}
@@ -51,7 +51,7 @@ abstract class Model extends Database {
 
 	public function findAll($columnName, $value) {
 
-		$sql = "SELECT * FROM $this->table WHERE $columnName = '$value";
+		$sql = "SELECT * FROM $this->table WHERE $columnName = '$value'";
 
 		return $this->all($sql);
 	}

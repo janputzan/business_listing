@@ -16,6 +16,9 @@
 </head>
 <body>
 
+	<?php include('partials/_navBar.php'); ?>
+	<?php include('partials/_flash.php'); ?>
+
 	<div class="container">
 
 		<?php include('partials/_registerBusiness.php'); ?>

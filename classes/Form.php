@@ -51,6 +51,24 @@ class Form {
 	}
 
 	/**
+	 * Function to create a label tag
+	 *
+	 * @param  string  $name
+	 * @param  string  $text
+	 * 
+	 * @return string
+	 */
+	static public function error($name) {
+
+		$error = isset($_SESSION['errors'][$name]) ? $_SESSION['errors'][$name] : '';
+
+
+		unset($_SESSION['errors'][$name]);
+
+		return '<span class="error">'.$error.'</span>';
+	}
+
+	/**
 	 * Function to create an input type text tag
 	 *
 	 * @param  string  $name
@@ -59,19 +77,14 @@ class Form {
 	 * 
 	 * @return string
 	 */
-	static public function text($name, $class = null, $placeholder = null) {
+	static public function text($name, $class = null) {
 
 		if (!$class) {
 
-			$class = '';
+			$class = 'validate';
 		}
 
-		if (!$placeholder) {
-
-			$placeholder = '';
-		}
-
-		return '<input type="text" id="'.$name.'" class="'.$class.'" name="'.$name.'" placeholder="'.$placeholder.'">'."\n";
+		return '<input type="text" id="'.$name.'" class="'.$class.'" name="'.$name.'">'."\n";
 	}
 
 	/**
@@ -83,19 +96,14 @@ class Form {
 	 * 
 	 * @return string
 	 */
-	static public function textarea($name, $class = null, $placeholder = null) {
+	static public function textarea($name, $class = null) {
 
 		if (!$class) {
 
 			$class = '';
 		}
 
-		if (!$placeholder) {
-
-			$placeholder = '';
-		}
-
-		return '<textarea id="'.$name.'" class="'.$class.'" name="'.$name.'" placeholder="'.$placeholder.'"></textarea>'."\n";
+		return '<textarea id="'.$name.'" class="'.$class.'" name="'.$name.'"></textarea>'."\n";
 	}
 
 	/**
@@ -106,19 +114,14 @@ class Form {
 	 * 
 	 * @return string
 	 */
-	static public function email($class = null, $placeholder = null) {
+	static public function email($class = null) {
 
 		if (!$class) {
 
 			$class = '';
 		}
 
-		if (!$placeholder) {
-
-			$placeholder = 'Enter Your Email Here';
-		}
-
-		return '<input type="email" id="email" class="'.$class.'" name="email" placeholder="'.$placeholder.'">'."\n";
+		return '<input type="email" id="email" class="'.$class.'" name="email">'."\n";
 	}
 
 	/**
@@ -129,19 +132,14 @@ class Form {
 	 * 
 	 * @return string
 	 */
-	static public function password($class = null, $placeholder = null) {
+	static public function password($class = null) {
 
 		if (!$class) {
 
 			$class = '';
 		}
 
-		if (!$placeholder) {
-
-			$placeholder = 'Enter Your Password Here';
-		}
-
-		return '<input type="password" id="password" class="'.$class.'" name="password" placeholder="'.$placeholder.'">'."\n";
+		return '<input type="password" id="password" class="'.$class.'" name="password">'."\n";
 	}
 
 	/**

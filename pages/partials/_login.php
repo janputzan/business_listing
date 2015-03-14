@@ -6,6 +6,7 @@
 
 			<?php echo Form::label('email', 'Email: '); ?>
 			<?php echo Form::email(); ?>
+			<?php echo Form::error('email'); ?>
 
 		</div>
 
@@ -13,6 +14,7 @@
 
 			<?php echo Form::label('password', 'Password: '); ?>
 			<?php echo Form::password(); ?>
+			<?php echo Form::error('password'); ?>
 
 		</div>
 

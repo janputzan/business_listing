@@ -27,6 +27,8 @@ class App {
 			
 		}
 
+		// start session
+		session_start();
 	}
 
 	/**

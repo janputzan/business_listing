@@ -14,7 +14,7 @@ class User extends Model{
 	 * @param  string  $username
 	 * @param  string  $password
 	 * 
-	 * @return boolean
+	 * @return mixed
 	 */
 
 	public function checkLogin($input) {
@@ -31,11 +31,19 @@ class User extends Model{
 			// password_* methods are available with PHP 5 >= 5.6
 			if (App::isLocal()) {
 			
-				return password_verify($password,$user->password);
+				// return PDO object if true
+				if (password_verify($password,$user->password)) {
+
+					return $user;
+				}
 
 			} else {
 
-				return strcmp($user->password, crypt($password));
+				// return PDO object if true
+				if (strcmp($user->password, crypt($password))) {
+
+					return $user;
+				}
 			}
 		}
 		

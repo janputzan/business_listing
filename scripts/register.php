@@ -4,7 +4,6 @@
 	App::start();
 
 	// get input from the form and trim it from trailing empyy spaces
-
 	$input = array_map('trim', $_POST);
 
 	// check if input passes the validation
@@ -15,15 +14,18 @@
 
 		if ($user->save($input)) {
 
-			echo 'registered';
+			Message::set('You have registered. Please log in.', 'messages');
+			header("Location: ../pages/loginPage.php");
 		
 		} else {
 
-			echo 'not registered';
+			Message::set('There was an internal errors. Please contact the administrator.', 'messages');
+			header("Location: {$_SERVER['HTTP_REFERER']}");
 		}
 	} else {
 
-		echo 'validation failed';
+		Message::set('Please correct all errors.', 'messages');
+		header("Location: {$_SERVER['HTTP_REFERER']}");
 	}
 
 ?>

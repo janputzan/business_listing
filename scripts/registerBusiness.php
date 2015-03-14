@@ -20,15 +20,18 @@
 
 		if ($business->save($input, $settings)) {
 
-			echo 'registered';
+			Message::set('You have registered a business.', 'messages');
+			header("Location: ../pages/homePage.php");
 
 		} else {
 
-			echo 'not registered';
+			Message::set('There was an internal errors. Please contact the administrator.', 'messages');
+			header("Location: {$_SERVER['HTTP_REFERER']}");
 		}
 	} else {
 
-		echo 'validation failed';
+		Message::set('Please correct all errors.', 'messages');
+		header("Location: {$_SERVER['HTTP_REFERER']}");
 	}
 
 ?>

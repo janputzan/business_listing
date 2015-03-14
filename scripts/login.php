@@ -3,15 +3,15 @@
 	require('../App.php');
 	App::start();
 
-	$user = new User;
+	if (Auth::attempt($_POST)) {
 
-	
-	if ($user->checkLogin($_POST)) {
+		Message::set(array('message' => 'You are logged in'), 'messages');
+		header("Location: ../pages/homePage.php");
 
-		echo 'logged in';
 	} else {
-		echo 'no entry';
-	}
 
+		Message::set(array('message' => 'Wrong credentials. Try again.'), 'messages');
+		header("Location: {$_SERVER['HTTP_REFERER']}");
+	}
 
 ?>
