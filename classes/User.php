@@ -21,7 +21,7 @@ class User extends Model{
 
 		extract($input);
 
-		$sql = "SELECT * FROM users WHERE email = '$email'";
+		$sql = "SELECT * FROM $this->table WHERE email = '$email'";
 		
 		$user = $this->one($sql);
 
