@@ -98,7 +98,7 @@ class Form {
 	 */
 	static public function textarea($name) {
 
-		return '<textarea id="'.$name.'" class="materialize-textarea" name="'.$name.'" value="'.getValue($name).'"></textarea>'."\n";
+		return '<textarea id="'.$name.'" class="materialize-textarea" name="'.$name.'">'.getValue($name).'</textarea>'."\n";
 	}
 
 	/**
