@@ -74,9 +74,9 @@ class Auth {
 	}
 
 	/**
-	 * Function to return a logged in user
+	 * Function to check if logged in user is an admin
 	 *
-	 * @return mixed
+	 * @return boolean
 	 */
 	static public function is_admin() {
 
