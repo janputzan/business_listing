@@ -2,51 +2,47 @@
 
 	<div class="nav-wrapper">
 
-		<a href="homePage.php" class="brand-logo">Logo</a>
+		<div class="container">
 
-		<a href="#" data-activates="mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+			<a href="homePage.php" class="brand-logo">Pandora Box</a>
 
-		<ul class="right hide-on-med-and-down">
+			<a href="#" data-activates="mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 
-			<li><a href="registerPage.php">register</a></li>
+			<ul class="right hide-on-med-and-down">
 
-			<li><a href="registerBusinessPage.php">register business</a></li>
+				<li><a href="#">dashboard</a></li>
 
-			<li>
-				<?php 
-					if (Auth::check()) {
+				<li><a href="#">listings</a></li>
 
-						echo '<a href="..\scripts\logout.php">log out</a>';	
-					
-					} else {
+				<li>
 
-						echo '<a href="loginPage.php">log in</a>';
-					}
-				?>
-			</li>
+					<a class='dropdown-button' href='#' data-activates='dropdown'>account</a>
 
-		</ul>
+					<ul id="dropdown" class="dropdown-content">
 
-		<ul class="side-nav" id="mobile">
+						<li><a href="#">settings</a></li>
 
-			<li><a href="registerPage.php">register</a></li>
+						<li><a href="#">logout</a></li>
 
-			<li><a href="registerBusinessPage.php">register business</a></li>
+					</ul>
 
-			<li>
-				<?php 
-					if (Auth::check()) {
+				</li>
 
-						echo '<a href="..\scripts\logout.php">log out</a>';	
-					
-					} else {
+			</ul>
 
-						echo '<a href="loginPage.php">log in</a>';
-					}
-				?>
-			</li>
+			<ul class="side-nav" id="mobile">
 
-		</ul>
+				<li><a href="#">dashboard</a></li>
+
+				<li><a href="#">listings</a></li>
+
+				<li><a href="#">account</a></li>
+						
+				<li><a href="#">logout</a></li>
+
+			</ul>
+
+		</div>
 
 	</div>
 

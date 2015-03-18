@@ -18,9 +18,9 @@
 
 		</div>
 
-		<div class="input-field">
+		<div class="input-field center-align">
 
-			<?php echo Form::submit('Log In', 'active'); ?>
+			<?php echo Form::submit('Log In'); ?>
 
 		</div>
 

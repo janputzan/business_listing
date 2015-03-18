@@ -17,6 +17,7 @@
 	
 	<?php include('partials/_navBar.php'); ?>
 	<?php include('partials/_flash.php'); ?>
+	<?php include('partials/_sideNav.php'); ?>
 
 	<div class="container">
 
