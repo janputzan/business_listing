@@ -21,7 +21,7 @@ class Form {
 
 		if (!$id) {
 
-			$id = '';
+			$id = 'form';
 		}
 
 		return '<form id="'.$id.'" action="'.$url.'" method="post" class="'.$class.'">'."\n";

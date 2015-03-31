@@ -3,8 +3,11 @@
 class App {
 
 	/**
-	 * Function to autoload classes
-	 *
+	 * Function that is to execute on every page
+	 * - autoloads classes
+	 * - sets error reporting
+	 * - starts session
+	 * @return void
 	 */
 	static public function start() {
 		// workaround for mayar server's PHP version is older than 5.6
@@ -32,7 +35,7 @@ class App {
 	}
 
 	/**
-	 * Function to check the local environment
+	 * Function to check if the envirnment is local
 	 *
 	 * @return boolean
 	 */

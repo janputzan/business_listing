@@ -108,6 +108,24 @@ class Database {
 
 		return true;	
 	}
+
+	public function run($sql) {
+
+		try {
+
+			$query = $this->connection->query($sql);
+
+			$result = $query->fetch(PDO::FETCH_NUM);
+		
+		} catch (PDOException $e) {
+
+			echo $e->getMessage();
+
+			return false;
+		}
+
+		return $result;
+	}
 	
 }
 
