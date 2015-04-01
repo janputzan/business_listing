@@ -73,7 +73,6 @@ class Form {
 	 *
 	 * @param  string  $name
 	 * @param  string  $class
-	 * @param  string  $placeholder
 	 * 
 	 * @return string
 	 */
@@ -92,7 +91,6 @@ class Form {
 	 *
 	 * @param  string  $name
 	 * @param  string  $class
-	 * @param  string  $placeholder
 	 * 
 	 * @return string
 	 */
@@ -105,7 +103,6 @@ class Form {
 	 * Function to create an input type password tag
 	 *
 	 * @param  string  $class
-	 * @param  string  $placeholder
 	 * 
 	 * @return string
 	 */
@@ -120,10 +117,27 @@ class Form {
 	}
 
 	/**
+	 * Function to create an input type file tag
+	 *
+	 * @param  string  $name
+	 * @param  string  $class
+	 * 
+	 * @return string
+	 */
+	static public function file($name, $class = null) {
+
+		if (!$class) {
+
+			$class = 'validate';
+		}
+
+		return '<input type="file" id="'.$name.'" class="'.$class.'" name="'.$name.'" value="'.getValue($name).'">'."\n";
+	}
+
+	/**
 	 * Function to create an input type submit tag
 	 *
 	 * @param  string  $class
-	 * @param  string  $placeholder
 	 * 
 	 * @return string
 	 */

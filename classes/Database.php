@@ -109,7 +109,7 @@ class Database {
 		return true;	
 	}
 
-	public function run($sql) {
+	public function getNumber($sql) {
 
 		try {
 

@@ -29,23 +29,10 @@
 	<div class="container">
 
 
-	<!-- Pagination test -->
+	<!-- Table of users with pagination -->
 
-	<a href="?page=1">test</a>
 
-	<?php
-
-	$user = new User;
-
-	$users = $user->paginate(3);
-
-	echo $users->links();
-
-	$x = $user->getAll();
-
-	var_dump($users->content, $x);
-
-	?>
+	<?php include('partials/_upload.php'); ?>
 
 	<!-- End Pagination test -->
 	</div>

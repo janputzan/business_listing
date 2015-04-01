@@ -25,3 +25,20 @@
 	max-width: 400px;
 	margin: auto !important;
 }
+
+.pagination li.active {
+	width: 120px !important;
+}
+
+.upload {
+	position: relative;
+	width: 200px;
+}
+
+.upload .error {
+
+	position: absolute;
+	top: 75px;
+	left: 15px;
+
+}

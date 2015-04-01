@@ -103,6 +103,41 @@ class Validation {
 		return $check;
 	}
 
+	static public function uploadImage($file, $target_file, $imageFileType) {
+
+		$check = getimagesize($file['tmp_name']);
+
+		if (!$check) {
+
+			Message::set(array('fileToUpload' => 'File is not an image.'), 'errors');
+
+			return false;
+		}
+
+		if (file_exists($target_file)) {
+
+			Message::set(array('fileToUpload' => 'File already exists.'), 'errors');
+
+			return false;
+		}
+
+		if ($file['size'] > 500000) {
+
+			Message::set(array('fileToUpload' => 'File is bigger than 500kb.'), 'errors');
+
+			return false;
+		}
+
+		if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
+
+			Message::set(array('fileToUpload' => 'Wrong format. Only jpg, jpeg and png are supported.'), 'errors');
+
+			return false;
+		}
+
+		return true;
+	}
+
 
 
 }

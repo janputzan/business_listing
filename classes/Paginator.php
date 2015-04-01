@@ -18,24 +18,36 @@ class Paginator extends Database{
 		$this->limit = $limit;
 		$this->offset = 0;
 
-		$this->getContent();
 		$this->getTotal();
+		$this->getContent();
 
 	}
 
 	private function getContent() {
 
-		if (isset($_GET['page'])) {
+		if (isset($_GET['page']) && is_numeric($_GET['page'])) {
 
-			$this->currentPage = $_GET['page'];
+			if ($_GET['page'] > 0) {
 
-			$this->offset = ($this->currentPage - 1) * $this->limit;
+				if (($_GET['page'] * $this->limit) > ($this->total[0] + $this->limit)) {
+
+					$this->currentPage = round($this->total[0] / $this->limit);
+
+				} else {
+
+					$this->currentPage = $_GET['page'];
+				}
+
+				$this->offset = ($this->currentPage - 1) * $this->limit;
+
+			} else {
+
+				$this->currentPage = 1;
+			}
 			
 		} else {
 
 			$this->currentPage = 1;
-
-			$this->offset = 0;
 		}
 		
 		$sql = "SELECT * FROM $this->table LIMIT $this->limit OFFSET $this->offset";
@@ -49,29 +61,35 @@ class Paginator extends Database{
 
 		if (isset($_GET['page']) && $_GET['page'] > 1) {
 
-			$this->prevPage = '<a href="?page='.($this->currentPage - 1).'">prev</a>';
+			$this->prevPage = '?page='.($this->currentPage - 1);
 
 		} else {
-			$this->prevPage = '<a href="" disabled>prev</a>';
+
+			$this->prevPage = '#!';
 		}
 
 		if (isset($_GET['page'])) {
 			
 			if (($_GET['page'] + 1) * $this->limit < $this->total[0] + $this->limit ) {
 			
-				$this->nextPage = '<a href="?page='.($this->currentPage + 1).'">next</a>';
+				$this->nextPage = '?page='.($this->currentPage + 1);
 			
 			} else {
 
-				$this->nextPage = '<a href="" disabled>next</a>';
+				$this->nextPage = '#!';
 			}
 
 		} else {
 
-			$this->nextPage = '<a href="?page=2">next</a>';
+			$this->nextPage = '?page=2';
 		}
 
-		return $this->prevPage.'<a href="" disabled>'.$this->currentPage.'</a>'.$this->nextPage; 
+		$links = '<ul class="pagination">
+    				<li class="waves-effect"><a href="'.$this->prevPage.'"><i class="mdi-navigation-chevron-left"></i></a></li>
+    				<li class="active"><a href="?page='.$this->currentPage.'">'.$this->currentPage.' out of '.round($this->total[0]/$this->limit).'</a></li>
+    				<li class="waves-effect"><a href="'.$this->nextPage.'"><i class="mdi-navigation-chevron-right"></i></a></li></ul>';
+
+		return $links; 
 
 	}
 
@@ -79,7 +97,7 @@ class Paginator extends Database{
 
 		$sql = "SELECT COUNT(*) FROM $this->table";
 
-		$this->total = $this->run($sql);
+		$this->total = $this->getNumber($sql);
 
 		return $this;
 	}
