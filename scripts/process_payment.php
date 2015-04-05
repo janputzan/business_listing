@@ -1,0 +1,64 @@
+<?php
+
+	require('../App.php');
+	App::start();
+
+	function constructUrl($_api_key, $_order_id, $_amount, $_card_number, $_cvv) {
+
+		if (App::isLocal()) {
+
+			return 'http://localhost/business_listing/payment_gateway/process_payment.php?card_number='
+					.$_card_number
+					.'&order_id='.$_order_id
+					.'&amount='.$_amount
+					.'&api_key='.$_api_key
+					.'&cvv='.$_cvv;
+			
+		}
+
+	}
+
+	$api_key = 's0m3h4rdc0d3dv41u3';
+
+	$order_id = 1;
+
+	$amount = 500;
+
+	$card_number = $_POST['card_number'];
+
+	$cvv = $_POST['cvv'];
+
+	if (!Validation::cardDetails(array('card_number' => $card_number, 'cvv' => $cvv))) {
+
+		Message::set('Please correct all errors.', 'messages');
+		header("Location: {$_SERVER['HTTP_REFERER']}");
+
+		return false;
+	}
+
+	$response = json_decode(file_get_contents(constructUrl($api_key, $order_id, $amount, $card_number, $cvv)));
+
+	switch ($response->status) {
+
+		case 'fail':
+			Message::set('Please correct all errors.', 'messages');
+			Message::set(array('card_number' => $response->message), 'errors');
+			$_SESSION['input-old'] = $input;
+			header("Location: {$_SERVER['HTTP_REFERER']}");
+
+		break;
+
+		case 'success':
+			Message::set('Payment Processed', 'messages');
+			header("Location: {$_SERVER['HTTP_REFERER']}");
+		break;
+
+		default:
+			Message::set('Something went wrong', 'messages');
+			header("Location: {$_SERVER['HTTP_REFERER']}");
+		break;
+	}
+
+	return false;
+
+?>

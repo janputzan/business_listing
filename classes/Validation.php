@@ -138,6 +138,29 @@ class Validation {
 		return true;
 	}
 
+	static public function cardDetails($input) {
+
+		extract($input);
+
+		$check = true;
+
+		if ($card_number == '') {
+
+			Message::set(array('card_number' => 'Card number is required'), 'errors');
+
+			$check = false;
+		}
+		
+		if (strlen($cvv) != 3) {
+
+			Message::set(array('cvv' => 'CVV must be 3 digits long'), 'errors');
+
+			$check = false;
+		}
+
+		return $check;
+	}
+
 
 
 }

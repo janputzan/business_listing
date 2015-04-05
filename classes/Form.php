@@ -131,7 +131,7 @@ class Form {
 			$class = 'validate';
 		}
 
-		return '<input type="file" id="'.$name.'" class="'.$class.'" name="'.$name.'" value="'.getValue($name).'">'."\n";
+		return '<input type="file" id="'.$name.'" class="'.$class.'" name="'.$name.'">'."\n";
 	}
 
 	/**

@@ -32,7 +32,7 @@
 	<!-- Table of users with pagination -->
 
 
-	<?php include('partials/_upload.php'); ?>
+	<?php include('partials/_paymentForm.php'); ?>
 
 	<!-- End Pagination test -->
 	</div>
