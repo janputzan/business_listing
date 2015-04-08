@@ -20,7 +20,7 @@
 <body>
 	
 	<!-- Navigation -->
-	<?php include('partials/_adminNavBar.php'); ?>
+	<?php include('partials/_navBar.php'); ?>
 
 	<!-- Flash Messages -->
 	<?php include('partials/_flash.php'); ?>
@@ -28,7 +28,7 @@
 	<!-- Main Content -->
 	<div class="container">
 
-	
+		<?php include('partials/_usersList.php'); ?>
 	</div>
 
 	<!-- JavaScript files -->

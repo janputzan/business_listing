@@ -6,7 +6,7 @@
 	if (Auth::attempt($_POST)) {
 
 		Message::set(array('message' => 'You are logged in'), 'messages');
-		header("Location: ../pages/homePage.php");
+		header("Location: ../pages/dashboard.php");
 
 	} else {
 

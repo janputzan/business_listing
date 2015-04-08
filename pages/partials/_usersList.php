@@ -18,7 +18,7 @@
 
 			$usersObject = new User;
 
-			$users = $usersObject->paginate(3);
+			$users = $usersObject->paginate(3, array('id', 'email'));
 
 			foreach($users->content as $user) {
 
