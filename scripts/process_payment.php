@@ -3,13 +3,13 @@
 	require('../App.php');
 	App::start();
 
-	function constructUrl($_api_key, $_order_id, $_amount, $_card_number, $_cvv) {
+	function constructUrl($_api_key, $_token, $_amount, $_card_number, $_cvv) {
 
 		if (App::isLocal()) {
 
 			return 'http://localhost/business_listing/payment_gateway/process_payment.php?card_number='
 					.$_card_number
-					.'&order_id='.$_order_id
+					.'&token='.$_token
 					.'&amount='.$_amount
 					.'&api_key='.$_api_key
 					.'&cvv='.$_cvv;
@@ -20,7 +20,8 @@
 
 	$api_key = 's0m3h4rdc0d3dv41u3';
 
-	$order_id = 1;
+	$length = 10;
+	$token = substr(str_shuffle(md5(time())), 0, $length);
 
 	$amount = 500;
 
@@ -36,7 +37,15 @@
 		return false;
 	}
 
-	$response = json_decode(file_get_contents(constructUrl($api_key, $order_id, $amount, $card_number, $cvv)));
+	$response = json_decode(file_get_contents(constructUrl($api_key, $token, $amount, $card_number, $cvv)));
+
+	if ($response->token != $token) {
+
+		Message::set('Token mismatch. Please contact the administrator.', 'messages');
+		header("Location: {$_SERVER['HTTP_REFERER']}");
+
+		return false;
+	}
 
 	switch ($response->status) {
 

@@ -70,7 +70,7 @@
 // Get request parameters
 $api_key = isset($_GET['api_key']) ? $_GET['api_key'] : null;
 
-$order_id = isset($_GET['order_id']) ? $_GET['order_id'] : null;
+$token = isset($_GET['token']) ? $_GET['token'] : null;
 
 $card_number = isset($_GET['card_number']) ? $_GET['card_number'] : null;
 
@@ -93,7 +93,7 @@ if ($api_key != $_API) {
 }
 
 // process payment - checking if the card number and cvv pass validation
-if ($card_number && $cvv && $order_id && $amount) {
+if ($card_number && $cvv && $token && $amount) {
 
 	// this is only a simulation - not valid authentication method
 	if ($cvv != substr($card_number, 13, 3)) {
@@ -109,24 +109,27 @@ if ($card_number && $cvv && $order_id && $amount) {
 
 		case 200:
 			echo json_encode(array('status' => 'fail',
-						'message' => 'Invalid length'));
+						'message' => 'Invalid length',
+						'token' => $token));
 			break;
 
 		case 300:
 			echo json_encode(array('status' => 'fail',
-					'message' => 'Card failed validation'));
+					'message' => 'Card failed validation',
+					'token' => $token));
 			break;
 
 		case 400:
 			echo json_encode(array('status' => 'success',
 				'message' => 'Payment processed',
-				'order_id' => $order_id,
+				'token' => $token,
 				'amount' => $amount));
 			break;
 
 		default:
 			echo json_encode(array('status' => 'fail',
-				'message' => 'Error in processing payment'));
+				'message' => 'Error in processing payment',
+				'token' => $token));
 			break;
 	}
 
@@ -135,7 +138,8 @@ if ($card_number && $cvv && $order_id && $amount) {
 } else {
 
 	echo json_encode(array('status' => 'fail',
-				'message' => 'Incomplete details'));
+				'message' => 'Incomplete details',
+				'token' => $token));
 }
 
 

@@ -20,7 +20,7 @@
 <body>
 	
 	<!-- Navigation -->
-	<?php include('partials/_navBar.php'); ?>
+	<?php include('partials/_adminNavBar.php'); ?>
 
 	<!-- Flash Messages -->
 	<?php include('partials/_flash.php'); ?>

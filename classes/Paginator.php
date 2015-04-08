@@ -115,6 +115,12 @@ class Paginator extends Database{
 
 	public function links() {
 
+		// return empty string if no pagination needed
+		if ($this->total[0] <= $this->limit) {
+
+			return '';
+		}
+
 		if (isset($_GET['page']) && $_GET['page'] > 1) {
 
 			$this->prevPage = '?page='.($this->currentPage - 1);
