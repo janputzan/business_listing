@@ -15,8 +15,9 @@
 
 		if ($user->save($input)) {
 
-			Message::set('You have registered. Please log in.', 'messages');
-			header("Location: ../pages/loginPage.php");
+			Message::set('Please fill out this form', 'messages');
+			$_SESSION['wizard'] = 1;
+			header("Location: {$_SERVER['HTTP_REFERER']}");
 		
 		} else {
 

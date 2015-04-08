@@ -13,7 +13,8 @@
 
 		if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file)) {
 
-			Message::set(array('message' => 'The file '.basename($_FILES['fileToUpload']['name']).' has been uploaded'), 'messages');
+			Message::set('Please process payment', 'messages');
+			$_SESSION['wizard'] = 3;
 			header("Location: {$_SERVER['HTTP_REFERER']}");
 		
 		} else {

@@ -59,7 +59,8 @@
 
 		case 'success':
 			Message::set('Payment Processed', 'messages');
-			header("Location: {$_SERVER['HTTP_REFERER']}");
+			unset($_SESSION['wizard']);
+			header("Location: ../pages/homePage.php");
 		break;
 
 		default:

@@ -14,19 +14,9 @@
 
 				<li><a href="#">listings</a></li>
 
-				<li>
+				<li><a href="#">account</a></li>
 
-					<a class='dropdown-button' href='#' data-activates='dropdown'>account</a>
-
-					<ul id="dropdown" class="dropdown-content">
-
-						<li><a href="#">settings</a></li>
-
-						<li><a href="#">logout</a></li>
-
-					</ul>
-
-				</li>
+				<li><a href="#">logout</a></li>
 
 			</ul>
 

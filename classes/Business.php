@@ -33,8 +33,8 @@ class Business extends Model{
 
 		extract($settings);
 
-		$sql = "INSERT INTO $this->table (name, address_1, address_2, city, postcode, tel, url, info, photo_url, user_id, category_id, is_premium, is_active) 
-					VALUES ('$name', '$address_1', '$address_2', '$city', '$postcode', '$tel', '$url', '$info', '$photo_url', '$user_id', '$category_id', '$is_premium', '$is_active') ";
+		$sql = "INSERT INTO $this->table (name, address_1, address_2, city, postcode, tel, url, info, user_id, category_id, is_premium, is_active) 
+					VALUES ('$name', '$address_1', '$address_2', '$city', '$postcode', '$tel', '$url', '$info', '$user_id', '$category_id', '$is_premium', '$is_active')";
 
 		if ($this->execute($sql)) {
 
@@ -75,8 +75,5 @@ class Business extends Model{
 
 		return count($this->getPremium()) - 4;
 	}
-
-	
-
 
 }

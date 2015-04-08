@@ -75,9 +75,3 @@
 	<?php echo Form::close(); ?>
 
 </div>
-
-<div id="upload-file" class="modal">
-
-	<?php include('_upload.php'); ?>
-
-</div>
