@@ -49,7 +49,7 @@
     					</div>
     					<div class="card-content">
       						<span class="card-title activator grey-text text-darken-4">' . $business->name . '</span>
-      						<p><a href="#">Premium Business</a></p>
+      						<p><a href="#!">Premium Business</a></p>
     					</div>
     					<div class="card-reveal">
       						<span class="card-title grey-text text-darken-4">' . $business->name . '<i class="mdi-navigation-close right"></i></span>
@@ -96,8 +96,8 @@
 					foreach ($categoryModel->getAll() as $category) {
 						
 						echo '<li class="collection-item">'
-							. '<a href="?category_id='
-							. $category->id
+							. '<a href="'
+							. Url::append('category_id', $category->id)
 							. '">'
 							. $category->name
 							. '</a>'
@@ -133,7 +133,7 @@
 	        					</div>
 	        					<div class="card-content">
 	          						<span class="card-title activator grey-text text-darken-4">' . $business->name . '<i class="mdi-navigation-more-vert right"></i></span>
-	          						<p><a href="#">View Business</a></p>
+	          						<p>' . $categoryModel->findOne($business->category_id)->name .'</p>
 	        					</div>
 	        					<div class="card-reveal">
 	          						<span class="card-title grey-text text-darken-4">' . $business->name . '<i class="mdi-navigation-close right"></i></span>
