@@ -56,9 +56,9 @@ abstract class Model extends Database {
 		return $this->all($sql);
 	}
 
-	public function paginate($limit, $columns = null) {
+	public function paginate($limit, $columns = null, $condition = null) {
 
-		$paginator = new Paginator($this->table, $limit, $columns);
+		$paginator = new Paginator($this->table, $limit, $columns, $condition);
 
 		return $paginator;
 	}

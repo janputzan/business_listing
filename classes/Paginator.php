@@ -13,8 +13,9 @@ class Paginator extends Database{
 	private $columns;
 	private $filters = array();
 	private $sql;
+	private $givenCondition;
 
-	public function __construct($table, $limit, $columns = null) {
+	public function __construct($table, $limit, $columns = null, $givenCondition = null) {
 
 		parent::__construct();
 		$this->table = $table;
@@ -22,6 +23,7 @@ class Paginator extends Database{
 		$this->offset = 0;
 
 		$this->columns = $columns ?: null;
+		$this->givenCondition = $givenCondition ?: null;
 
 		$this->setFilters();
 		$this->getTotal();
@@ -80,29 +82,14 @@ class Paginator extends Database{
 	}
 
 	private function setSql() {
-		
-		if (count($this->filters)) {
 
-			$sql = "SELECT * FROM $this->table WHERE ";
+		$sql = "SELECT * FROM $this->table ";
 
-			for ($i = 0, $_len = count($this->filters); $i < $_len; $i++) {
+		$sql = $this->applyConditions($sql);
 
-				if ($i == ($_len - 1)) {
+		$this->sql = $sql . " LIMIT $this->limit OFFSET $this->offset";
 
-					$sql .= " ".$this->filters[$i][0]." = '".$this->filters[$i][1]."' ";
-				
-				} else {
-
-					$sql .= " ".$this->filters[$i][0]." = '".$this->filters[$i][1]."' AND ";
-				}
-			}
-
-			$this->sql = $sql . "LIMIT $this->limit OFFSET $this->offset";
-
-		} else {
-
-			$this->sql = "SELECT * FROM $this->table LIMIT $this->limit OFFSET $this->offset";
-		}
+		// var_dump($this->sql);die;
 		return $this;
 	}
 
@@ -159,7 +146,7 @@ class Paginator extends Database{
 
 		$links = '<ul class="pagination">
     				<li class="waves-effect"><a href="'.$this->prevPage.$filters.'"><i class="mdi-navigation-chevron-left"></i></a></li>
-    				<li class="active"><a href="?page='.$this->currentPage.$filters.'">'.$this->currentPage.' out of '.round($this->total[0]/$this->limit).'</a></li>
+    				<li class="active"><a href="?page='.$this->currentPage.$filters.'">'.$this->currentPage.' out of '.ceil($this->total[0]/$this->limit).'</a></li>
     				<li class="waves-effect"><a href="'.$this->nextPage.$filters.'"><i class="mdi-navigation-chevron-right"></i></a></li></ul>';
 
 		return $links; 
@@ -170,9 +157,26 @@ class Paginator extends Database{
 
 		$sql = "SELECT COUNT(*) FROM $this->table";
 
+		$sql = $this->applyConditions($sql); 
+
+		$this->total = $this->getNumber($sql);
+
+		return $this;
+	}
+
+	private function applyConditions($sql) {
+
+		if ($this->givenCondition) {
+
+			$sql .= " WHERE " . $this->givenCondition[0] . "='" . $this->givenCondition[1] . "' ";
+		}
+
 		if ($this->filters) {
 
-			$sql = "SELECT COUNT(*) FROM $this->table WHERE ";
+			if ($this->givenCondition) {
+
+				$sql .= "AND";
+			}
 
 			for ($i = 0, $_len = count($this->filters); $i < $_len; $i++) {
 
@@ -186,15 +190,9 @@ class Paginator extends Database{
 				}
 			}
 
-		} else {
-
-			$sql = "SELECT COUNT(*) FROM $this->table";
 		}
 
-		$this->total = $this->getNumber($sql);
-
-
-		return $this;
+		return $sql;
 	}
 
 	

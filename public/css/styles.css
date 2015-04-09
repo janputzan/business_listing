@@ -42,3 +42,47 @@
 	left: 15px;
 
 }
+
+a.small {
+	font-size: small !important;
+}
+
+.business-cards .col {
+	/*width: 200px;
+	height: 200px;
+	display: inline-block;
+	margin: 5px;
+	padding: 5px;*/
+
+	margin-bottom: 1px;
+	margin-top: 1px;
+	height: 100%;
+}
+
+.business-cards .pagination {
+
+	width: 250px;
+	margin: auto;
+}
+
+.premium .card-content {
+
+	position: absolute;
+	bottom: 0px;
+}
+
+.premium .card {
+
+	height: 300px;
+}
+
+.premium .card-title {
+
+	font-size: large;
+	line-height: 20px !important;
+}
+
+.premium .card-content p > a {
+
+	font-size: small;
+}
