@@ -76,4 +76,11 @@ class Business extends Model{
 		return count($this->getPremium()) - 4;
 	}
 
+	public function countInCategory($category_id) {
+
+		$sql = "SELECT COUNT(*) FROM $this->table WHERE category_id = '$category_id'";
+
+		return $this->getNumber($sql)[0];
+	}
+
 }

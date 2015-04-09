@@ -63,6 +63,7 @@ a.small {
 
 	width: 250px;
 	margin: auto;
+	margin-top: 35px;
 }
 
 .premium .card-content {
@@ -84,5 +85,12 @@ a.small {
 
 .premium .card-content p > a {
 
+	font-size: small;
+}
+
+.count-label {
+	position: relative;
+	float: right;
+	font-style: italic;
 	font-size: small;
 }

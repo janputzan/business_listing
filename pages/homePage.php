@@ -5,6 +5,7 @@
 
 	$businessModel = new Business;
 	$categoryModel = new Category;
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 5.01//EN">
@@ -87,7 +88,7 @@
 
 		<div class="row">
 
-			<div class="col s0 m2 l2 hide-on-small-only">
+			<div class="col s0 m3 l3 hide-on-small-only">
 
 				<ul class="collection">	
 
@@ -101,6 +102,9 @@
 							. '">'
 							. $category->name
 							. '</a>'
+							. '<span class="align-center count-label">'
+							. $businessModel->countInCategory($category->id)
+							. '</span>'
 							. '</li>';
 					}
 
@@ -110,7 +114,7 @@
 
 			</div>
 
-			<div class="col s12 m10 l10 business-cards">
+			<div class="col s12 m9 l9 business-cards">
 
 				
 
