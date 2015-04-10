@@ -14,6 +14,15 @@
 					.'&api_key='.$_api_key
 					.'&cvv='.$_cvv;
 			
+		} else {
+
+			
+			return 'http://mayar.abertay.ac.uk/~1405776/payment_gateway/process_payment.php?card_number='
+					.$_card_number
+					.'&token='.$_token
+					.'&amount='.$_amount
+					.'&api_key='.$_api_key
+					.'&cvv='.$_cvv;
 		}
 
 	}

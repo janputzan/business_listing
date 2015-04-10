@@ -100,6 +100,8 @@
 				<?php
 
 					foreach ($categoryModel->getAll() as $category) {
+
+						$cat_count = $businessModel->countInCategory($category->id);
 						
 						echo '<li class="collection-item">'
 							. '<a href="'
@@ -108,7 +110,7 @@
 							. $category->name
 							. '</a>'
 							. '<span class="align-center count-label">'
-							. $businessModel->countInCategory($category->id)
+							. $cat_count[0]
 							. '</span>'
 							. '</li>';
 					}

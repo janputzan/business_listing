@@ -80,7 +80,7 @@ class Business extends Model{
 
 		$sql = "SELECT COUNT(*) FROM $this->table WHERE category_id = '$category_id' AND is_active = '1'";
 
-		return $this->getNumber($sql)[0];
+		return $this->getNumber($sql);
 	}
 
 	public function findByName($name) {
