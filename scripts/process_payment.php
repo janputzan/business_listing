@@ -58,9 +58,20 @@
 		break;
 
 		case 'success':
-			Message::set('Payment Processed', 'messages');
-			unset($_SESSION['wizard']);
-			header("Location: ../pages/homePage.php");
+			$paymentModel = new Payment;
+
+			if ($paymentModel->save(array('business_id' => $_SESSION['wizard.business_id'], 'amount' => 30))) {
+
+				Message::set('Payment Processed', 'messages');
+				unset($_SESSION['wizard']);
+				header("Location: ../pages/homePage.php");
+				
+			} else {
+
+				Message::set('Something went wrong. Please contact the administrator', 'messages');
+				header("Location: {$_SERVER['HTTP_REFERER']}");
+			}
+
 		break;
 
 		default:

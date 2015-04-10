@@ -36,7 +36,7 @@
 
 		<div class="input-field">
 
-			<?php echo Form::submit('Register', 'active'); ?>
+			<?php echo Form::submit('Next', 'active'); ?>
 
 		</div>
 

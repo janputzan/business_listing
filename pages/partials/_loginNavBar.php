@@ -6,13 +6,13 @@
 
 			<ul class="left">
 				
-				<li><a href="#">back to listings</a>
+				<li><a href="homePage.php">back to listings</a>
 
 			</ul>
 
 			<ul class="right">
 				
-					<li><a href="#">sign up</a></li>
+					<li><a href="wizardPage.php">sign up</a></li>
 			</ul>
 
 

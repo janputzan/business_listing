@@ -38,7 +38,7 @@
 .upload .error {
 
 	position: absolute;
-	top: 75px;
+	top: 100px;
 	left: 15px;
 
 }
@@ -48,11 +48,6 @@ a.small {
 }
 
 .business-cards .col {
-	/*width: 200px;
-	height: 200px;
-	display: inline-block;
-	margin: 5px;
-	padding: 5px;*/
 
 	margin-bottom: 1px;
 	margin-top: 1px;
@@ -64,6 +59,13 @@ a.small {
 	width: 250px;
 	margin: auto;
 	margin-top: 35px;
+}
+
+.business-cards .card-image {
+	height: 50px;
+	width: 50px;
+	margin: auto;
+	margin-top: 10px;
 }
 
 .premium .card-content {
@@ -93,4 +95,10 @@ a.small {
 	float: right;
 	font-style: italic;
 	font-size: small;
+}
+
+.form-container {
+	max-width: 500px;
+	padding-top: 10px;
+	margin: auto;
 }

@@ -13,9 +13,19 @@
 
 		if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file)) {
 
-			Message::set('Please process payment', 'messages');
-			$_SESSION['wizard'] = 3;
-			header("Location: {$_SERVER['HTTP_REFERER']}");
+			$businessModel = new Business;
+
+			if ($businessModel->update($_SESSION['wizard.business_id'], 'photo_url', $target_file)) {
+
+				Message::set('Photo successfully uploaded', 'messages');
+				$_SESSION['wizard'] = 3;
+				header("Location: {$_SERVER['HTTP_REFERER']}");
+				
+			} else {
+				
+				Message::set('Something went wrong. Please contact the administrator', 'messages');
+				header("Location: {$_SERVER['HTTP_REFERER']}");
+			}
 		
 		} else {
 

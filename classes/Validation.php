@@ -46,6 +46,13 @@ class Validation {
 
 		$check = true;
 
+		if (!$category || $category == 0) {
+
+			Message::set(array('category' => 'You must choose a category'), 'errors');
+
+			$check = false;
+		}
+
 		if (!between($name, 3, 30)) {
 
 			Message::set(array('name' => 'Business Name must be between 3 and 30 characters long'), 'errors');

@@ -13,15 +13,16 @@
 
 		$business = new Business;
 
-		$settings['user_id'] = 9;
-		$settings['category_id'] = 1;
-		$settings['is_premium'] = 0;
+		$settings['user_id'] = $_SESSION['wizard.user_id'];
+		$settings['category_id'] = $input['category'];
+		$settings['is_premium'] = $_SESSION['wizard.is_premium'] ?: 0;
 		$settings['is_active'] = 0;
 
 // var_dump($input, $settings);die;
 		if ($business->save($input, $settings)) {
 
 			Message::set('Please upload image', 'messages');
+			$_SESSION['wizard.business_id'] = $business->findByName($input['name'])->id;
 			$_SESSION['wizard'] = 2;
 			header("Location: {$_SERVER['HTTP_REFERER']}");
 

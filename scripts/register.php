@@ -15,7 +15,11 @@
 
 		if ($user->save($input)) {
 
-			Message::set('Please fill out this form', 'messages');
+			$newUser = $user->findByEmail($input['email']);
+
+			$_SESSION['wizard.user_id'] = $newUser->id;
+
+			Message::set('Account successfully created', 'messages');
 			$_SESSION['wizard'] = 1;
 			header("Location: {$_SERVER['HTTP_REFERER']}");
 		

@@ -4,7 +4,7 @@
 
 	<div class="row">
 
-			<div class="col s11 m11 l11">
+			<div class="col s10 m10 l10">
 
 				<div class="input-field ">
 
@@ -16,7 +16,7 @@
 
 			</div>
 
-			<div class="col s1 m1 l1">
+			<div class="col s2 m2 l2">
 
 				<div class="input-field ">
 

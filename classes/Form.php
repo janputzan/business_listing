@@ -159,7 +159,48 @@ class Form {
 
 		return '<input type="submit" class="'.$class.'" value="'.$value.'">'."\n";
 	}
+
+	/**
+	 * Function to create an input type submit tag
+	 *
+	 * @param  string  	$name
+	 * @param  array  	$options
+	 * @param  string  	$form_id
+	 * 
+	 * @return string
+	 */
+	static public function select($name, array $options, $form_id) {
+
+		$select = '<select name="'
+				. $name
+				. '" form="'
+				. $form_id
+				. '">'
+				. '<option value="0">Choose '
+				. $name
+				. '</option>';
+
+		foreach ($options as $option) {
+		
+			foreach ($option as $key => $value) {
+				$select .= '<option value="'
+						. $value
+						. '">'
+						. $key
+						. '</option>';
+			}
+		}
+
+		$select .= '</select>';
+
+		return $select;
+	}
 }
+
+
+/**/
+/* 	End Class Form 	*/
+/**/
 
 
 /**

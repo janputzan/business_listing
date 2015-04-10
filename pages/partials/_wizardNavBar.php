@@ -10,21 +10,13 @@
 
 			<ul class="right hide-on-med-and-down">
 
-				<li><a href="wizardPage.php">Sign Up</a></li>
-
-				<li><a href="#">About</a></li>
-
-				<li><a class="small" href="loginPage.php">Business Sign In</a></li>
+				<li><a class="small" href="homePage.php">Go back to home page</a></li>
 
 			</ul>
 
 			<ul class="side-nav" id="mobile">
 
-				<li><a href="wizardPage.php">Sign Up</a></li>
-
-				<li><a href="#">About</a></li>
-
-				<li><a class="small" href="loginPage.php">Business Sign In</a></li>
+				<li><a class="small" href="homePage.php">Go back to home page</a></li>
 
 			</ul>
 

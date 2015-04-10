@@ -63,5 +63,12 @@ abstract class Model extends Database {
 		return $paginator;
 	}
 
+	public function update($id, $column, $value) {
+
+		$sql = "UPDATE $this->table SET $column = '$value' WHERE id = '$id'";
+
+		return $this->execute($sql);
+	}
+
 }
 

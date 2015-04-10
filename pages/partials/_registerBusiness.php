@@ -4,6 +4,13 @@
 
 		<div class="input-field">
 
+			<?php echo Form::error('category'); ?>
+			<?php echo Form::select('category', getCategories(), 'form'); ?>
+
+		</div>
+
+		<div class="input-field">
+
 			<?php echo Form::label('name', 'Business Name'); ?>
 			<?php echo Form::text('name'); ?>
 			<?php echo Form::error('name'); ?>

@@ -27,5 +27,9 @@ $(document).ready(function() {
 		gutter: 0, // Spacing from edge
 		belowOrigin: true // Displays dropdown below the button
 	});
+
+	$(document).ready(function() {
+		$('select').material_select();
+	});
 });
 

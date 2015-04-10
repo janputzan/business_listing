@@ -1,4 +1,4 @@
-<div class="upload">
+<div class="upload form-container">
 
 	<form action="../scripts/upload.php" method="post" enctype="multipart/form-data">
 

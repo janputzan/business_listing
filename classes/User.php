@@ -117,4 +117,11 @@ class User extends Model{
 		return false;
 	}
 
+	public function findByEmail($email) {
+
+		$sql = "SELECT * FROM $this->table WHERE email = '$email'";
+
+		return $this->one($sql);
+	}
+
 }

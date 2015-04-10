@@ -6,6 +6,11 @@
 	$businessModel = new Business;
 	$categoryModel = new Category;
 
+	if (isset($_SESSION['wizard'])) {
+
+		unset($_SESSION['wizard']);
+	}
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 5.01//EN">
@@ -122,7 +127,7 @@
 					
 				<?php
 
-					$businesses = $businessModel->paginate(8, array('category_id'), array('is_active', '1'));
+					$businesses = $businessModel->paginate(6, array('category_id'), array('is_active', '1'));
 
 					if (!count($businesses->content)) {
 

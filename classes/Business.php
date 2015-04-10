@@ -78,9 +78,16 @@ class Business extends Model{
 
 	public function countInCategory($category_id) {
 
-		$sql = "SELECT COUNT(*) FROM $this->table WHERE category_id = '$category_id'";
+		$sql = "SELECT COUNT(*) FROM $this->table WHERE category_id = '$category_id' AND is_active = '1'";
 
 		return $this->getNumber($sql)[0];
+	}
+
+	public function findByName($name) {
+
+		$sql = "SELECT * FROM $this->table WHERE name = '$name'";
+
+		return $this->one($sql);
 	}
 
 }
