@@ -94,6 +94,7 @@ class Paginator extends Database{
 	}
 
 	private function getContent() {
+		// var_dump($this->sql);
 
 		$this->content = $this->all($this->sql);
 
@@ -176,6 +177,9 @@ class Paginator extends Database{
 			if ($this->givenCondition) {
 
 				$sql .= "AND";
+			} else {
+
+				$sql .= 'WHERE';
 			}
 
 			for ($i = 0, $_len = count($this->filters); $i < $_len; $i++) {

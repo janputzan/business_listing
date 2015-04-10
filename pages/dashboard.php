@@ -74,7 +74,7 @@
 		$businessModel = new Business;
 		$userModel = new User;
 
-		$listings = $businessModel->paginate(3, array('is_active', 'is_premium', 'category_id'));
+		$listings = $businessModel->paginate(5, array('is_active', 'is_premium', 'category_id'));
 
 		/* Listings Table*/
 

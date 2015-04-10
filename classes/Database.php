@@ -77,7 +77,9 @@ class Database {
 	 */
 
 	public function all($sql) {
-
+//-----> remove this 
+		var_dump($sql);
+//----->
 		$query = $this->connection->query($sql);
 		
 		$result = $query->fetchAll(PDO::FETCH_OBJ);

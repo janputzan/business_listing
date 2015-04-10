@@ -129,7 +129,7 @@
 					
 				<?php
 
-					$businesses = $businessModel->paginate(6, array('category_id'), array('is_active', '1'));
+					$businesses = $businessModel->paginate(6, array('category_id'), array('is_active', 1));
 
 					if (!count($businesses->content)) {
 
