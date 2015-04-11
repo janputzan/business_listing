@@ -23,7 +23,7 @@
 
 						if ($business->is_premium) {
 
-							echo '<i class="mdi-action-stars right"></i>';
+							echo '<div class="folded"><span>Premium</span></div>';
 						}
 
 					?>

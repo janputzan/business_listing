@@ -70,7 +70,7 @@
 
 		<div class="row">
 
-			<div class="col s6 m4 l3 categories">
+			<div class="col s6 m4 l2 categories">
 
 				<ul class="collection">	
 
@@ -98,7 +98,7 @@
 
 			</div>
 
-			<div class="col s6 m8 l9 business-cards">
+			<div class="col s6 m8 l10 business-cards">
 
 				<div class="row">
 					
@@ -130,7 +130,7 @@
 						echo '</div>';
 					
 					?>
-					
+
 				</div>
 
 			</div>
