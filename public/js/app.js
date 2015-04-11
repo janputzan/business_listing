@@ -31,5 +31,12 @@ $(document).ready(function() {
 	$(document).ready(function() {
 		$('select').material_select();
 	});
+
+	$('.business-card, .premium').click(function(e) {
+console.log('hi');
+		// e.preventDefault();
+
+		$(this).find('.show').toggle();
+	})
 });
 

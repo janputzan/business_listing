@@ -61,7 +61,7 @@ a.small {
 	margin-top: 35px;
 }
 
-.business-cards .card-image {
+/*.business-cards .card-image {
 	height: 50px;
 	width: 50px;
 	margin: auto;
@@ -88,7 +88,7 @@ a.small {
 .premium .card-content p > a {
 
 	font-size: small;
-}
+}*/
 
 .count-label {
 	position: relative;
@@ -101,4 +101,152 @@ a.small {
 	max-width: 500px;
 	padding-top: 10px;
 	margin: auto;
+}
+.card-logo > img {
+
+	width: 150px;
+	height: 150px;
+	padding: 5px;
+}
+.card-left {
+	border-right: 1px solid #ddd;
+}
+.card-left, .card-right {
+	display: inline-block;
+	height: 150px;
+}
+.card-logo, .card-details {
+	position: relative;
+	display: inline-block;
+	width: 150px;
+	height: 150px;
+}
+.card-details {
+
+	bottom: 10px;
+	padding: 5px;
+}
+.card-details > p {
+
+	font-size: x-small;
+	line-height: 1;
+}
+.card-content {
+
+	height: 150px;
+}
+.business-card {
+	display: inline-block;
+	border: solid 1px #ccc;
+	/*background-color: #ccc;*/
+	width: 310px;
+	height: 152px;
+	margin: 2px;
+	position: relative;
+}
+
+.card-name {
+	position: relative;
+	font-size: medium !important;
+	font-weight: bold;
+	top: -10px;
+}
+
+.card-address {
+
+	font-style: italic;
+	color: #4d4d4d;
+}
+
+.card-address .city {
+	font-weight: bold;
+}
+
+/* Icons */
+
+i.icon {
+
+	width: 20px !important;
+	height: 20px !important;
+	padding-left: 5px;
+}
+
+.business-card .show {
+	padding: 5px;
+	display: none;
+	position: absolute;
+	background-color: #fff;
+	top: 0px;
+	height: 150px;
+	width: 150px;
+	overflow: hidden;
+}
+.show .card-info {
+	font-size: small;
+}
+/* Premium */
+.premium {
+	border: solid 1px #ccc;
+	height: 300px;
+	width: 220px;
+	display: inline-block;
+	margin-left: 2px;
+}
+
+.business-cards-premium {
+
+	width: 910px;
+	height: 330px;
+	margin: auto;
+	padding-bottom: 20px;
+	
+}
+
+/*.business-card {
+	display: inline-block;
+	border: solid 1px #ccc;
+	background-color: #ccc;
+	width: 310px;
+	height: 152px;
+	margin: 2px;
+	position: relative;
+}*/
+
+.premium-logo > img {
+
+	height: 172px;
+	width: 172px;
+	padding: 5px;
+	position: relative;
+	left: 18px;
+}
+
+.premium-content {
+	position: relative;
+	top: -20px;
+	line-height: 1 !important;
+	padding-left: 20px;
+	font-size: small !important;
+
+}
+.premium-logo {
+	height: auto;
+}
+
+.premium-address .city {
+	font-weight: bold;
+}
+
+.promo-content > img {
+	width: 218px;
+}
+
+.premium .show {
+	display: none;
+	position: absolute;
+	width: 180px;
+	height: 120px;
+	top: 0px;
+	background-color: #fff;
+	overflow: hidden;
 }
