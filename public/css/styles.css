@@ -28,6 +28,7 @@
 
 .pagination li.active {
 	width: 120px !important;
+	background-color: #088AB2;
 }
 
 .upload {
@@ -191,6 +192,9 @@ i.icon {
 	width: 220px;
 	display: inline-block;
 	margin-left: 2px;
+	background-color: #fff;
+	margin-top: 15px;
+	margin-bottom: 20px;
 }
 
 .business-cards-premium {
@@ -301,7 +305,7 @@ div.folded span:after {
 }
 
 nav {
-	background-color: #D96D00;
+	background-color: #6C7A89;
 }
 
 .categories {
@@ -309,3 +313,10 @@ nav {
 	left: -20px;
 }
 
+.premium-container {
+
+	background-color: #15C7FF;
+	width: 100%;
+	position: relative;
+	top: -40px;
+}

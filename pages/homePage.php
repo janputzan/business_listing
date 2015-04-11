@@ -35,8 +35,7 @@
 	<!-- Flash Messages -->
 	<?php include('partials/_flash.php'); ?>
 
-	<!-- Main Content -->
-	<div class="container main-content">
+	<div class="premium-container">
 
 		<div class="business-cards-premium">
 
@@ -67,6 +66,11 @@
 			?>
 
 		</div>
+
+	</div>
+	<!-- Main Content -->
+	<div class="container main-content">
+
 
 		<div class="row">
 
