@@ -101,11 +101,11 @@ class Paginator extends Database{
 
 	public function links() {
 
-		// // return empty string if no pagination needed
-		// if ($this->total[0] <= $this->limit) {
+		// return empty string if no pagination needed
+		if ($this->total[0] <= $this->limit) {
 
-		// 	return '';
-		// }
+			return '';
+		}
 
 		if (isset($_GET['page']) && $_GET['page'] > 1) {
 
