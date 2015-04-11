@@ -89,12 +89,10 @@ class Paginator extends Database{
 
 		$this->sql = $sql . " LIMIT $this->limit OFFSET $this->offset";
 
-		// var_dump($this->sql);die;
 		return $this;
 	}
 
 	private function getContent() {
-		// var_dump($this->sql);
 
 		$this->content = $this->all($this->sql);
 
@@ -103,11 +101,11 @@ class Paginator extends Database{
 
 	public function links() {
 
-		// return empty string if no pagination needed
-		if ($this->total[0] <= $this->limit) {
+		// // return empty string if no pagination needed
+		// if ($this->total[0] <= $this->limit) {
 
-			return '';
-		}
+		// 	return '';
+		// }
 
 		if (isset($_GET['page']) && $_GET['page'] > 1) {
 
@@ -149,18 +147,18 @@ class Paginator extends Database{
     				<li class="waves-effect"><a href="'.$this->prevPage.$filters.'"><i class="mdi-navigation-chevron-left"></i></a></li>
     				<li class="active"><a href="?page='.$this->currentPage.$filters.'">'.$this->currentPage.' out of '.ceil($this->total[0]/$this->limit).'</a></li>
     				<li class="waves-effect"><a href="'.$this->nextPage.$filters.'"><i class="mdi-navigation-chevron-right"></i></a></li></ul>';
-
 		return $links; 
 
 	}
 
 	private function getTotal() {
 
-		$sql = "SELECT COUNT(*) FROM $this->table";
+		$sql = "SELECT COUNT(*) FROM $this->table ";
 
 		$sql = $this->applyConditions($sql); 
 
 		$this->total = $this->getNumber($sql);
+
 
 		return $this;
 	}
@@ -177,6 +175,7 @@ class Paginator extends Database{
 			if ($this->givenCondition) {
 
 				$sql .= "AND";
+
 			} else {
 
 				$sql .= 'WHERE';
@@ -195,7 +194,6 @@ class Paginator extends Database{
 			}
 
 		}
-
 		return $sql;
 	}
 
