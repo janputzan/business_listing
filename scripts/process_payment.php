@@ -72,8 +72,12 @@
 			if ($paymentModel->save(array('business_id' => $_SESSION['wizard.business_id'], 'amount' => 30))) {
 
 				Message::set('Payment Processed', 'messages');
+
+				$url = '../pages/businessPage.php?business_id=' . $_SESSION['wizard.business_id'];
+
+				header("Location: " . $url);
 				unset($_SESSION['wizard']);
-				header("Location: ../pages/homePage.php");
+				unset($_SESSION['wizard.user_id']);
 				
 			} else {
 

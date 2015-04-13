@@ -12,7 +12,8 @@
 
 			<ul class="right">
 				
-					<li><a href="wizardPage.php">sign up</a></li>
+				<li><a href="wizardPage.php">sign up</a></li>
+				
 			</ul>
 
 

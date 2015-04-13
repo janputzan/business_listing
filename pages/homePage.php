@@ -11,6 +11,14 @@
 
 		unset($_SESSION['wizard']);
 	}
+	if (isset($_SESSION['wizard.user_id'])) {
+
+		unset($_SESSION['wizard.user_id']);
+	}
+	if (isset($_SESSION['wizard.business_id'])) {
+
+		unset($_SESSION['wizard.business_id']);
+	}
 
 ?>
 
@@ -43,12 +51,16 @@
 
 				$premium = $businessModel->findAll('is_premium', 1);
 
-				$premiumCount = count($premium);
+				$premiumCount = 0;
 
 				foreach ($premium as $business) {
 
-					include('partials/_businessCardPremium.php');
+					if ($business->is_active) {
 
+						include('partials/_businessCardPremium.php');
+
+						$premiumCount++;
+					}
 				}
 
 				if ($premiumCount < 4) {
@@ -60,8 +72,6 @@
 						include('partials/_businessCardPlaceholder.php');
 					}
 				}
-
-				
 
 			?>
 
@@ -76,6 +86,8 @@
 
 			<div class="col s6 m4 l2 categories">
 
+				<a href="homePage.php" class="cat-reset">reset</a>
+
 				<ul class="collection">	
 
 					<?php
@@ -83,8 +95,17 @@
 						foreach ($categoryModel->getAll() as $category) {
 
 							$cat_count = $businessModel->countInCategory($category->id);
+
+							$cat_class = '';
+
+							if (isset($_GET['category_id']) && $_GET['category_id'] == $category->id) {
+
+								$cat_class = ' active';
+							}
 							
-							echo '<li class="collection-item">'
+							echo '<li class="collection-item'
+								. $cat_class
+								. '">'
 								. '<a href="'
 								. Url::append('category_id', $category->id)
 								. '">'

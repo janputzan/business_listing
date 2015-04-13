@@ -32,11 +32,16 @@ $(document).ready(function() {
 		$('select').material_select();
 	});
 
-	$('.business-card, .premium').click(function(e) {
-console.log('hi');
-		// e.preventDefault();
+	// toggle info
+	$('.card-right, .premium-content').click(function(e) {
 
 		$(this).find('.show').toggle();
-	})
+	});
+
+	// show flash messages as toasts
+	if ($('.message').text() != '') {
+
+		toast($('.message').text(), 5000);
+	}
 });
 

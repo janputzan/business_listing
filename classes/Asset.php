@@ -41,6 +41,7 @@ class Asset {
 		// default values
 		$output = '<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css">
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cuprum" />
 					<link rel="stylesheet" type="text/css" href="../public/css/styles.css">';
 
 		if ($css) {

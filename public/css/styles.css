@@ -1,3 +1,11 @@
+body {
+
+	font-family: 'Cuprum', sans-serif;
+	
+}
+body > .container {
+
+}
 #flash {
 	position: relative;
 	width: 100vw;
@@ -103,7 +111,7 @@ a.small {
 	padding-top: 10px;
 	margin: auto;
 }
-.card-logo > img {
+.card-logo > a >img {
 
 	width: 150px;
 	height: 150px;
@@ -123,9 +131,9 @@ a.small {
 	height: 150px;
 }
 .card-details {
-
+	position: relative;
+	float: bottom;
 	bottom: 10px;
-	padding: 5px;
 }
 .card-details > p {
 
@@ -147,10 +155,11 @@ a.small {
 }
 
 .card-name {
-	position: relative;
+	position: absolute;
 	font-size: medium !important;
 	font-weight: bold;
-	top: -10px;
+	top: 3px;
+	right: 8px;
 }
 
 .card-address {
@@ -185,6 +194,17 @@ i.icon {
 .show .card-info {
 	font-size: small;
 }
+
+.show .card-name {
+	position: absolute;
+	top: -13px;
+	right: 5px;
+}
+.show .card-description {
+
+	position: absolute;
+	bottom: 10px;
+}
 /* Premium */
 .premium {
 	border: solid 1px #ccc;
@@ -198,7 +218,7 @@ i.icon {
 }
 
 .business-cards-premium {
-
+	position: relative;
 	width: 910px;
 	height: 330px;
 	margin: auto;
@@ -216,13 +236,14 @@ i.icon {
 	position: relative;
 }*/
 
-.premium-logo > img {
+.premium-logo > a > img {
 
-	height: 172px;
-	width: 172px;
+	height: 171px;
+	width: 226px;
 	padding: 5px;
 	position: relative;
-	left: 23px;
+	left: -4px;
+	top: -4px;
 }
 
 .premium-content {
@@ -248,17 +269,22 @@ i.icon {
 .premium .show {
 	display: none;
 	position: absolute;
-	width: 180px;
+	width: 208px;
 	height: 120px;
 	top: 0px;
 	background-color: #fff;
 	overflow: hidden;
 	z-index: 888;
+	left: 7px;
 }
 
-.postcode {
-	padding-left: 20px;
+.card-info .card-description {
+	font-size: x-small;
 }
+.premium .card-description {
+	font-size: medium;
+}
+
 
 /* RIBBON */
 div.folded:before, div.folded:after {
@@ -282,30 +308,30 @@ div.folded:after {
 }
 div.folded span {
     border-width: 1px 1px 2px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     margin: 0;
     padding: 2px 5px;
     position: absolute;
-    right: -14px;
-    top: -2px;
+    top: 26px;
     font-size: small;
     background-color: #D96D00;
     color: #fff;
-    right: -18px;
+    right: -22px;
     z-index: 999;
 }
 div.folded span:after {
     border-width: 7px;
     border-style: solid;
     border-color: #134 transparent transparent #134;
-    bottom: -15px;
+    bottom: -14px;
     content: "";
     position: absolute;
-    right: -1px;
+    right: 0px;
 }
 
 nav {
 	background-color: #6C7A89;
+	z-index: 99999;
 }
 
 .categories {
@@ -319,4 +345,114 @@ nav {
 	width: 100%;
 	position: relative;
 	top: -40px;
+}
+
+.business-header .business-name {
+
+	font-size: xx-large;
+	position: relative;
+	margin-top: 20px;
+}
+
+
+.address > span {
+	display: block;
+	padding-left: 20px;
+}
+
+.address > i {
+	position: relative;
+	top: 20px;
+}
+.business-logo {
+	
+	position: relative;
+}
+.business-logo > img {
+	width: 350px;
+	height: 350px;
+	border: solid 1px #ddd;
+}
+
+.business-header {
+
+	background-color: #56A7FF;
+	height: 120px;
+	position: relative;
+	top: -40px;
+	color: #fff;
+	width: 100%;
+}
+
+.business-details {
+	position: relative;
+	top: -85px;
+}
+
+.business .description {
+
+	position: relative;
+	top: -90px;
+}
+
+
+.card-logo > a {
+
+	/*display: none;*/
+}
+
+.status, .paid, .unpaid, .premium-package, .standard-package {
+
+	padding: 7px;
+	border-radius: 10px;
+	color: #fff;
+}
+
+.status.status-active, .paid {
+
+	background-color: #26C969;
+}
+
+.status.status-inactive, .unpaid {
+
+	background-color: #C95B4C;
+}
+
+.tr-premium {
+
+	background-color: rgba(201,129,43,0.1);
+}
+
+.premium-package {
+
+	background-color: #E09030;
+}
+
+.standard-package {
+
+	background-color: #ccc;
+}
+
+.admin-info {
+
+	position: absolute;
+	right: 10px;
+	top: 15px;
+}
+.admin-info span {
+
+	margin-left: 5px;
+}
+
+.categories .active {
+
+	background-color: #6C7A89 !important;
+}
+.categories .active a{
+
+	color: #fff !important;
+}
+.premium-content .folded span {
+	top: -168px;
+	right: -14px;
 }

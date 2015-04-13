@@ -10,18 +10,18 @@
 
 			<ul class="right hide-on-med-and-down">
 
-				<li><a href="#">Users</a></li>
-				<li><a href="#">Listings</a></li>
-				<li><a href="#">Payments</a></li>
+				<li class="<?php echo Url::is_active('dashboard.php'); ?>"><a href="dashboard.php">Listings</a></li>
+				<li class="<?php echo Url::is_active('adminUsers.php'); ?>"><a href="adminUsers.php">Users</a></li>
+				<li class="<?php echo Url::is_active('adminPayments.php'); ?>"><a href="adminPayments.php">Payments</a></li>
 				<li><a href="..\scripts\logout.php">Log Out</a>
 
 			</ul>
 
 			<ul class="side-nav" id="mobile">
 
-				<li><a href="#">Users</a></li>
-				<li><a href="#">Listings</a></li>
-				<li><a href="#">Payments</a></li>
+				<li class="<?php echo Url::is_active('dashboard.php'); ?>"><a href="dashboard.php">Listings</a></li>
+				<li class="<?php echo Url::is_active('adminUsers.php'); ?>"><a href="adminUsers.php">Users</a></li>
+				<li class="<?php echo Url::is_active('adminPayments.php'); ?>"><a href="adminPayments.php">Payments</a></li>
 				<li><a href="..\scripts\logout.php">Log Out</a>
 
 			</ul>

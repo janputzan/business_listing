@@ -10,13 +10,49 @@
 
 			<ul class="right hide-on-med-and-down">
 
-				<li><a class="small" href="homePage.php">Go back to home page</a></li>
+				<?php 
+
+					if (Auth::check()) {
+
+						if (Auth::is_admin()) {
+
+							echo '<li><a class="small" href="dashboard.php">Back to Admin Panel</a></li>';
+						
+						} else {
+
+							echo '<li><a class="small" href="userDashboard.php">Back to User Panel</a></li>';
+						}
+					
+					} else {
+
+						echo '<li><a class="" href="homePage.php">Back to Listings</a></li>';
+					}
+
+				?>
 
 			</ul>
 
 			<ul class="side-nav" id="mobile">
 
-				<li><a class="small" href="homePage.php">Go back to home page</a></li>
+				<?php 
+
+					if (Auth::check()) {
+
+						if (Auth::is_admin()) {
+
+							echo '<li><a class="small" href="dashboard.php">Back to Admin Panel</a></li>';
+						
+						} else {
+
+							echo '<li><a class="small" href="userDashboard.php">Back to User Panel</a></li>';
+						}
+					
+					} else {
+
+						echo '<li><a class="" href="homePage.php">Back to Listings</a></li>';
+					}
+
+				?>
 
 			</ul>
 

@@ -1,12 +1,18 @@
 <div class="premium">
 
-	<div class="premium-logo">
+	<div class="premium-logo tooltipped" data-position="bottom" data-delay="50" data-tooltip="Click image to view business">
 
-		<img src="<?php echo $business->photo_url ?: '../public/img/no_image.png'; ?>">
+		<a href="businessPage.php?business_id=<?php echo $business->id; ?>">
+
+			<img src="<?php echo $business->photo_url ?: '../public/img/no_image.png'; ?>">
+
+		</a>
 
 	</div>
 
 	<div class="premium-content">
+
+		<div class="folded"><span>Featured</span></div>
 
 		<p class="premium-address">
 
@@ -43,7 +49,7 @@
 
 			<p class="card-name"><?php echo $business->name; ?></p>
 
-			<p class="card-info"><?php echo $business->info; ?></p>
+			<p class="card-description"><?php echo $business->info; ?></p>
 
 		</div>
 

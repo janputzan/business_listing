@@ -16,7 +16,7 @@
 <html>
 <head>
 
-	<title>Listings</title>
+	<title>Users</title>
 
 	<!-- Meta Tags -->
 	<?php include('partials/_metaTags.php'); ?>
@@ -36,38 +36,13 @@
 	<!-- Main Content -->
 	<div class="container">
 
-	<h5>Listings</h5>
+	<h5>Users</h5>
 
 	
 
 	<div class="divider"></div>
 
 	<!-- Filters -->
-
-	<?php
-
-		if (isset($_GET['is_premium']) && $_GET['is_premium'] == 0) {
-
-			echo '<a href="'.Url::append('is_premium', 1).'" class="btn">Show Premium</a>';
-
-		} else {
-
-			echo '<a href="'.Url::append('is_premium', 0).'" class="btn">Show Non Premium</a>';
-		}
-		if (isset($_GET['is_active']) && $_GET['is_active'] == 0) {
-
-			echo '<a href="'.Url::append('is_active', 1).'" class="btn">Show Active</a>';
-			
-		} else {
-
-			echo '<a href="'.Url::append('is_active', 0).'" class="btn">Show Inactive</a>';
-		}
-
-	?>
-
-	<a href="<?php echo Url::reset();?>" class="btn">Reset</a>
-
-
 
 	<!-- End Filters -->
 
@@ -77,11 +52,11 @@
 		$userModel 		= new User;
 		$paymentModel 	= new Payment;
 
-		$listings = $businessModel->paginate(5, array('is_active', 'is_premium', 'category_id'));
+		$users = $userModel->paginate(5);
 
 		/* Listings Table*/
 
-		include('partials/_listings.php');
+		include('partials/_users.php');
 
 	?>
 		

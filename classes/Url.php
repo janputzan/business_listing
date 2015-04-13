@@ -34,4 +34,16 @@ class Url {
 
 		return $_SERVER['PHP_SELF'];
 	}
+
+	static public function is_active($base) {
+
+		if (basename($_SERVER['PHP_SELF']) == $base) {
+
+			return ' active ';
+		
+		} else {
+
+			return '';
+		}
+	}
 }

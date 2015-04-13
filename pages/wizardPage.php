@@ -3,10 +3,12 @@
 	require_once('../App.php');
 	App::start();
 
-	if (Auth::check()) {
+	if (Auth::is_admin()) {
 
 		Message::set(array('message' => 'You are not authorised to view this page'), 'messages');
 		header("Location: ../pages/homePage.php");
+
+		return false;
 	}
 
 	function getCategories() {
@@ -81,17 +83,38 @@
 					break;
 
 				default:
-					echo '<p>Step 1 out 4 - create an account</p>';
-					include('partials/_registerUser.php');
+					if (Auth::check()) {
+
+						echo '<p>Step 2 out 4 - register business</p>';
+
+						include('partials/_registerBusiness.php');
+
+					} else {
+
+						echo '<p>Step 1 out 4 - create an account</p>';
+						
+						include('partials/_registerUser.php');
+					}
 					break;
 
 			} 
 		
 		} else {
 
-			echo '<p>Step 1 out 4 - create an account</p>';
+			if (Auth::check()) {
+
+				echo '<p>Step 2 out 4 - register business</p>';
+
+				include('partials/_registerBusiness.php');
+
+			} else {
+
+				echo '<p>Step 1 out 4 - create an account</p>';
+				
+				include('partials/_registerUser.php');
+			}
+
 			
-			include('partials/_registerUser.php');
 		}
 
 		?>

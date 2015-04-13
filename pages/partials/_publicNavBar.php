@@ -10,21 +10,63 @@
 
 			<ul class="right hide-on-med-and-down">
 
-				<li><a href="wizardPage.php">Sign Up</a></li>
+				<?php
 
-				<li><a href="#">About</a></li>
+					if (Auth::check()) {
 
-				<li><a class="small" href="loginPage.php">Business Sign In</a></li>
+						if (Auth::is_admin()) {
+
+							echo '<li><a href="dashboard.php">Admin Site</a></li>';
+						
+						} else {
+
+							echo '<li><a href="userDashboard.php">User Panel</a></li>';
+						}
+						
+						echo '<li><a href="../scripts/logout.php">Log Out</a></li>';
+					
+					} else {
+
+						echo '<li><a href="wizardPage.php">Sign Up</a></li>'
+
+						. '<li><a href="#">About</a></li>'
+
+						. '<li><a class="" href="loginPage.php">Business Sign In</a></li>';
+						
+					}
+
+				?>
 
 			</ul>
 
 			<ul class="side-nav" id="mobile">
 
-				<li><a href="wizardPage.php">Sign Up</a></li>
+				<?php
 
-				<li><a href="#">About</a></li>
+					if (Auth::check()) {
 
-				<li><a class="small" href="loginPage.php">Business Sign In</a></li>
+						if (Auth::is_admin()) {
+
+							echo '<li><a href="dashboard.php">Admin Site</a></li>';
+						
+						} else {
+
+							echo '<li><a href="userDashboard.php">User Panel</a></li>';
+						}
+						
+						echo '<li><a href="../scripts/logout.php">Log Out</a></li>';
+					
+					} else {
+
+						echo '<li><a href="wizardPage.php">Sign Up</a></li>'
+
+						. '<li><a href="#">About</a></li>'
+
+						. '<li><a class="small" href="loginPage.php">Business Sign In</a></li>';
+						
+					}
+
+				?>
 
 			</ul>
 

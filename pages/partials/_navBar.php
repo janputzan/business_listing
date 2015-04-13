@@ -10,25 +10,17 @@
 
 			<ul class="right hide-on-med-and-down">
 
-				<li><a href="#">dashboard</a></li>
+				<li class="active"><a href="#">Manage Listings</a></li>
 
-				<li><a href="#">listings</a></li>
-
-				<li><a href="#">account</a></li>
-
-				<li><a href="#">logout</a></li>
+				<li><a href="../scripts/logout.php">Log Out</a></li>
 
 			</ul>
 
 			<ul class="side-nav" id="mobile">
 
-				<li><a href="#">dashboard</a></li>
+				<li><a href="#">Manage Listings</a></li>
 
-				<li><a href="#">listings</a></li>
-
-				<li><a href="#">account</a></li>
-						
-				<li><a href="#">logout</a></li>
+				<li><a href="../scripts/logout.php">Log Out</a></li>
 
 			</ul>
 

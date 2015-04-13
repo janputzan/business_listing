@@ -28,4 +28,18 @@ class Payment extends Model{
 
 		return false;
 	}
+
+	public function isPaid($business_id) {
+
+		$sql = "SELECT * FROM $this->table WHERE business_id = '$business_id'";
+
+		$payment = $this->one($sql);
+
+		if ($payment) {
+
+			return true;
+		}
+
+		return false;
+	}
 }

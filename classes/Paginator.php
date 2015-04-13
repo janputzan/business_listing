@@ -87,7 +87,7 @@ class Paginator extends Database{
 
 		$sql = $this->applyConditions($sql);
 
-		$this->sql = $sql . " LIMIT $this->limit OFFSET $this->offset";
+		$this->sql = $sql . "ORDER BY id DESC LIMIT $this->limit OFFSET $this->offset";
 
 		return $this;
 	}

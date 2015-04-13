@@ -75,7 +75,7 @@
 
 		<div class="input-field">
 
-			<?php echo Form::submit('Register Business', 'active'); ?>
+			<?php echo Form::submit('Next', 'active'); ?>
 
 		</div>
 

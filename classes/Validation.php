@@ -128,7 +128,7 @@ class Validation {
 			return false;
 		}
 
-		if ($file['size'] > 500000) {
+		if ($file['size'] > 1500000) {
 
 			Message::set(array('fileToUpload' => 'File is bigger than 500kb.'), 'errors');
 

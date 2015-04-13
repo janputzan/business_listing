@@ -6,7 +6,15 @@
 	if (Auth::attempt($_POST)) {
 
 		Message::set(array('message' => 'You are logged in'), 'messages');
-		header("Location: ../pages/dashboard.php");
+
+		if (Auth::is_admin()) {
+
+			header("Location: ../pages/dashboard.php");
+		
+		} else {
+
+			header("Location: ../pages/userDashboard.php");
+		} 
 
 	} else {
 
