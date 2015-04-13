@@ -215,14 +215,16 @@ i.icon {
 	background-color: #fff;
 	margin-top: 15px;
 	margin-bottom: 20px;
+
 }
 
 .business-cards-premium {
 	position: relative;
-	width: 910px;
+	width: 890px;
 	height: 330px;
 	margin: auto;
 	padding-bottom: 20px;
+
 	
 }
 
@@ -282,7 +284,7 @@ i.icon {
 	font-size: x-small;
 }
 .premium .card-description {
-	font-size: medium;
+	font-size: small;
 }
 
 
