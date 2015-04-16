@@ -18,7 +18,7 @@
 			if ($businessModel->update($_SESSION['wizard.business_id'], 'photo_url', $newImage->fileName)) {
 
 				Message::set('Photo successfully uploaded', 'messages');
-				$_SESSION['wizard'] = 3;
+				$_SESSION['wizard'] = 4;
 				header("Location: {$_SERVER['HTTP_REFERER']}");
 				
 			} else {

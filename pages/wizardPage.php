@@ -61,61 +61,58 @@
 		<!-- Register Business Form -->
 		<?php
 
-		
+			if (isset($_SESSION['wizard'])) {
+				
+				switch($_SESSION['wizard']) {
 
-		if (isset($_SESSION['wizard'])) {
-			
-			switch($_SESSION['wizard']) {
+					case 1:
+						echo '<p>Step 2 out 5 - choose your package</p>';
+						include('partials/_packages.php');
+						break;
 
-				case 1:
-					echo '<p>Step 2 out 4 - register business</p>';
-					include('partials/_registerBusiness.php');
-					break;
-
-				case 2:
-					echo '<p>Step 3 out 4 - upload a picture</p>';
-					include('partials/_upload.php');
-					break;
-
-				case 3:
-					echo '<p>Step 4 out 4 - process payment</p>';
-					include('partials/_paymentForm.php');
-					break;
-
-				default:
-					if (Auth::check()) {
-
-						echo '<p>Step 2 out 4 - register business</p>';
-
+					case 2:
+						echo '<p>Step 3 out 5 - register business</p>';
 						include('partials/_registerBusiness.php');
+						break;
 
-					} else {
+					case 3:
+						echo '<p>Step 4 out 5 - upload a picture</p>';
+						include('partials/_upload.php');
+						break;
 
-						echo '<p>Step 1 out 4 - create an account</p>';
-						
-						include('partials/_registerUser.php');
-					}
-					break;
+					case 4:
+						echo '<p>Step 5 out 5 - process payment</p>';
+						include('partials/_paymentForm.php');
+						break;
 
-			} 
-		
-		} else {
+					default:
+						if (Auth::check()) {
 
-			if (Auth::check()) {
+							echo '<p>Step 2 out 5 - choose your package</p>';
+							include('partials/_packages.php');
 
-				echo '<p>Step 2 out 4 - register business</p>';
+						} else {
 
-				include('partials/_registerBusiness.php');
+							echo '<p>Step 1 out 5 - create an account</p>';
+							include('partials/_registerUser.php');
+						}
+						break;
 
+				} 
+			
 			} else {
 
-				echo '<p>Step 1 out 4 - create an account</p>';
-				
-				include('partials/_registerUser.php');
-			}
+				if (Auth::check()) {
 
-			
-		}
+					echo '<p>Step 2 out 5 - choose your package</p>';
+					include('partials/_packages.php');
+
+				} else {
+
+					echo '<p>Step 1 out 5 - create an account</p>';
+					include('partials/_registerUser.php');
+				}
+			}
 
 		?>
 

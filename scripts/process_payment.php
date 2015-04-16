@@ -3,28 +3,12 @@
 	require('../App.php');
 	App::start();
 
-	function constructUrl($_api_key, $_token, $_amount, $_card_number, $_cvv) {
+	if (!isset($_SESSION['wizard'])) {
 
-		if (App::isLocal()) {
+		Message::set('You are not authorized', 'messages');
+		header("Location: {$_SERVER['HTTP_REFERER']}");
 
-			return 'http://localhost/business_listing/payment_gateway/process_payment.php?card_number='
-					.$_card_number
-					.'&token='.$_token
-					.'&amount='.$_amount
-					.'&api_key='.$_api_key
-					.'&cvv='.$_cvv;
-			
-		} else {
-
-			
-			return 'http://mayar.abertay.ac.uk/~1405776/payment_gateway/process_payment.php?card_number='
-					.$_card_number
-					.'&token='.$_token
-					.'&amount='.$_amount
-					.'&api_key='.$_api_key
-					.'&cvv='.$_cvv;
-		}
-
+		return false;
 	}
 
 	$api_key = 's0m3h4rdc0d3dv41u3';
@@ -32,7 +16,18 @@
 	$length = 10;
 	$token = substr(str_shuffle(md5(time())), 0, $length);
 
-	$amount = 500;
+	switch ($_SESSION['wizard.package']) {
+
+		case 'standard':
+			$amount = 10;
+			break;
+		case 'premium':
+			$amount = 50;
+			break;
+		default:
+			$amoun = 10;
+			break;
+	}
 
 	$card_number = $_POST['card_number'];
 
@@ -46,7 +41,7 @@
 		return false;
 	}
 
-	$response = json_decode(file_get_contents(constructUrl($api_key, $token, $amount, $card_number, $cvv)));
+	$response = json_decode(file_get_contents(Url::paymentApi($api_key, $token, $amount, $card_number, $cvv)));
 
 	if ($response->token != $token) {
 
@@ -69,7 +64,7 @@
 		case 'success':
 			$paymentModel = new Payment;
 
-			if ($paymentModel->save(array('business_id' => $_SESSION['wizard.business_id'], 'amount' => 30))) {
+			if ($paymentModel->save(array('business_id' => $_SESSION['wizard.business_id'], 'amount' => $amount))) {
 
 				Message::set('Payment Processed', 'messages');
 
@@ -78,6 +73,7 @@
 				header("Location: " . $url);
 				unset($_SESSION['wizard']);
 				unset($_SESSION['wizard.user_id']);
+				unset($_SESSION['wizard.package']);
 				
 			} else {
 
