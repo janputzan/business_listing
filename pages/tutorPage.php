@@ -3,22 +3,13 @@
 	require_once('../App.php');
 	App::start();
 
-	/* Perform check if the user is logged in and redirects to homePage if true */
-	if (Auth::check()) {
-
-		Message::set(array('message' => 'Wrong credentials. Try again.'), 'messages');
-		header("Location: homePage.php");
-
-		return false;
-	}
-	
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 
-	<title>Log In</title>
+	<title>Tutor page</title>
 
 	<!-- Meta Tags -->
 	<?php include('partials/_metaTags.php'); ?>
@@ -38,8 +29,8 @@
 	<!-- Main Content -->
 	<div class="container">
 
-		<!-- Login Form -->
-		<?php include('partials/_login.php'); ?>
+		<!-- Tutor -->
+		<?php include('partials/_tutor.php'); ?>
 
 	</div>
 

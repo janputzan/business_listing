@@ -8,7 +8,7 @@
 
 				<a href="businessPage.php?business_id=<?php echo $business->id; ?>">
 
-					<img src="<?php echo $business->photo_url ?: '../public/img/no_image.png'; ?>" title="Click to view business">
+					<img alt="no image" src="<?php echo $business->photo_url ?: '../public/img/no_image.png'; ?>" title="Click to view business">
 
 				</a>
 				

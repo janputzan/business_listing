@@ -56,7 +56,7 @@
 	
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 5.01//EN">
+<!DOCTYPE html>
 <html>
 <head>
 

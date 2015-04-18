@@ -23,7 +23,7 @@
 		
 		<div class="col s12 m12 l6 business-logo">
 			
-			<img class="responsive-img" src="<?php echo $business->photo_url ?: '../public/img/no_image.png'; ?>">
+			<img alt="no image" class="responsive-img" src="<?php echo $business->photo_url ?: '../public/img/no_image.png'; ?>">
 
 		</div>
 

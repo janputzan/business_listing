@@ -92,7 +92,7 @@ class Business extends Model{
 	 */
 	public function getAvailablePremiumCount() {
 
-		return count($this->getPremium()) - 4;
+		return 4 - count($this->getPremium());
 	}
 
 	/**

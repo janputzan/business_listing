@@ -2,7 +2,7 @@
 
 	<div class="promo-content">
 
-		<img src="../public/img/premium.png">
+		<img alt="no image" src="../public/img/premium.png">
 
 	</div>
 

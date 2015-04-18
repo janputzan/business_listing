@@ -29,7 +29,7 @@
 
 						echo '<li><a href="wizardPage.php">Sign Up</a></li>'
 
-						. '<li><a href="#">About</a></li>'
+						. '<li><a href="tutorPage.php">Tutor Page</a></li>'
 
 						. '<li><a class="" href="loginPage.php">Business Sign In</a></li>';
 						
@@ -60,7 +60,7 @@
 
 						echo '<li><a href="wizardPage.php">Sign Up</a></li>'
 
-						. '<li><a href="#">About</a></li>'
+						. '<li><a href="tutorPage.php">Tutor Page</a></li>'
 
 						. '<li><a class="small" href="loginPage.php">Business Sign In</a></li>';
 						

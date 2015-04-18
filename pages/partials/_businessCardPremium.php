@@ -4,7 +4,7 @@
 
 		<a href="businessPage.php?business_id=<?php echo $business->id; ?>">
 
-			<img src="<?php echo $business->photo_url ?: '../public/img/no_image.png'; ?>">
+			<img alt="no image" src="<?php echo $business->photo_url ?: '../public/img/no_image.png'; ?>">
 
 		</a>
 
