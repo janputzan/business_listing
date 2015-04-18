@@ -29,6 +29,13 @@ class Payment extends Model{
 		return false;
 	}
 
+	/**
+	 * Checks if business is paid
+	 *
+	 * @param  int  $business_id
+	 * 
+	 * @return boolean
+	 */
 	public function isPaid($business_id) {
 
 		$sql = "SELECT * FROM $this->table WHERE business_id = '$business_id'";

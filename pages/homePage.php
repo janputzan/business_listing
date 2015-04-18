@@ -49,18 +49,15 @@
 
 			<?php
 
-				$premium = $businessModel->findAll('is_premium', 1);
+				$premium = $businessModel->getPremium(true);
 
 				$premiumCount = 0;
 
 				foreach ($premium as $business) {
 
-					if ($business->is_active) {
-
 						include('partials/_businessCardPremium.php');
 
 						$premiumCount++;
-					}
 				}
 
 				if ($premiumCount < 4) {

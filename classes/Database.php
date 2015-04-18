@@ -111,6 +111,13 @@ class Database {
 		return true;	
 	}
 
+	/**
+	 * Execute a query and return integer or false
+	 *
+	 * @param  string  $sql
+	 * 
+	 * @return mixed $result
+	 */
 	public function getNumber($sql) {
 
 		try {

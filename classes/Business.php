@@ -64,18 +64,43 @@ class Business extends Model{
 		return false;
 	}
 
-	public function getPremium() {
+	/**
+	 * Gets all premium businesses
+	 * @param bool $is_active = null
+	 * 
+	 * @return array of PDO objects
+	 */
+	public function getPremium($is_active = null) {
 
-		$sql = "SELECT * FROM $this->table WHERE is_premium = '1'";
+		if ($is_active) {
+
+			$sql = "SELECT * FROM $this->table WHERE is_active = '1' AND is_premium = '1'";
+		
+		} else {
+
+			$sql = "SELECT * FROM $this->table WHERE is_premium = '1'";
+		}
+
 
 		return $this->all($sql);
 	}
 
+	/**
+	 * Counts available premium slots
+	 * 
+	 * @return int
+	 */
 	public function getAvailablePremiumCount() {
 
 		return count($this->getPremium()) - 4;
 	}
 
+	/**
+	 * Counts businesses in a category
+	 * @param int $category_id
+	 * 
+	 * @return int
+	 */
 	public function countInCategory($category_id) {
 
 		$sql = "SELECT COUNT(*) FROM $this->table WHERE category_id = '$category_id' AND is_active = '1'";
@@ -83,6 +108,12 @@ class Business extends Model{
 		return $this->getNumber($sql);
 	}
 
+	/**
+	 * Find business by name
+	 * @param string $name
+	 * 
+	 * @return PDO object
+	 */
 	public function findByName($name) {
 
 		$sql = "SELECT * FROM $this->table WHERE name = '$name'";

@@ -56,6 +56,13 @@ abstract class Model extends Database {
 		return $this->all($sql);
 	}
 
+	/**
+	 * Paginates the results
+	 * @param  integer  $limit
+	 * @param  array  $columns
+	 * @param  array  $condition
+	 * @return Paginator object
+	 */
 	public function paginate($limit, $columns = null, $condition = null) {
 
 		$paginator = new Paginator($this->table, $limit, $columns, $condition);
@@ -63,6 +70,14 @@ abstract class Model extends Database {
 		return $paginator;
 	}
 
+	/**
+	 * update a record in a table
+	 *
+	 * @param  int  $id
+	 * @param  string  $column
+	 * @param  mixed $value
+	 * @return boolean
+	 */
 	public function update($id, $column, $value) {
 
 		$sql = "UPDATE $this->table SET $column = '$value' WHERE id = '$id'";

@@ -117,6 +117,12 @@ class User extends Model{
 		return false;
 	}
 
+	/**
+	 * Find user by email 
+	 * @param string $email
+	 * 
+	 * @return PDO object
+	 */
 	public function findByEmail($email) {
 
 		$sql = "SELECT * FROM $this->table WHERE email = '$email'";

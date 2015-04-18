@@ -30,10 +30,15 @@ class Paginator extends Database{
 		$this->setPages();
 		$this->setSql();
 
-		$this->getContent();
+		$this->setContent();
 
 	}
 
+	/**
+	 * Sets filters
+	 *
+	 * @return this
+	 */
 	private function setFilters() {
 
 		if ($this->columns) {
@@ -50,6 +55,11 @@ class Paginator extends Database{
 		return $this;
 	}
 
+	/**
+	 * Sets pages
+	 *
+	 * @return this
+	 */
 	private function setPages() {
 
 		if (isset($_GET['page']) && is_numeric($_GET['page'])) {
@@ -81,6 +91,11 @@ class Paginator extends Database{
 		return $this;
 	}
 
+	/**
+	 * Sets sql
+	 *
+	 * @return this
+	 */
 	private function setSql() {
 
 		$sql = "SELECT * FROM $this->table ";
@@ -92,13 +107,23 @@ class Paginator extends Database{
 		return $this;
 	}
 
-	private function getContent() {
+	/**
+	 * Sets content
+	 *
+	 * @return this
+	 */
+	private function setContent() {
 
 		$this->content = $this->all($this->sql);
 
 		return $this;
 	}
 
+	/**
+	 * Creates links for pagination
+	 *
+	 * @return this
+	 */
 	public function links() {
 
 		// return empty string if no pagination needed
@@ -151,6 +176,11 @@ class Paginator extends Database{
 
 	}
 
+	/**
+	 * Gets total of records for given query
+	 *
+	 * @return this
+	 */
 	private function getTotal() {
 
 		$sql = "SELECT COUNT(*) FROM $this->table ";
@@ -163,6 +193,12 @@ class Paginator extends Database{
 		return $this;
 	}
 
+	/**
+	 * Applies conditions and filters to a query
+	 * @param string $sql
+	 *
+	 * @return string $sql
+	 */
 	private function applyConditions($sql) {
 
 		if ($this->givenCondition) {
