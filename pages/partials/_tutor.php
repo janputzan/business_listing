@@ -28,7 +28,7 @@
 
 	<p>Payment Gateway uses the Luhn Formula to determine if the card is valid. Click <a href="http://www.freeformatter.com/credit-card-number-generator-validator.html">here</a> for more information.</p>
 
-	<p><b>URL to call:</b> <a href="http://mayar.abertay.ac.uk/~1405776/payment_gateway/process_payment.php">http://mayar.abertay.ac.uk/~1405776/payment_gateway/process_payment.php</a></p>
+	<p><b>URL to call:</b> <a href="http://mayar.abertay.ac.uk/~1405776/aberpay">http://mayar.abertay.ac.uk/~1405776/aberpay</a></p>
 
 	<p>Required parameters:</p>
 	
@@ -42,8 +42,8 @@
 
 	<p><b>amount</b> - amount for the transaction - that is also returned with the response</p>
 
-	<p>Example: <a href="http://mayar.abertay.ac.uk/~1405776/payment_gateway/process_payment.php?api_key=s0m3h4rdc0d3dv41u3&token=sd73hfy$dsk&card_number=4024007110595823&cvv=823&amount=30">
-	http://mayar.abertay.ac.uk/~1405776/payment_gateway/process_payment.php?api_key=s0m3h4rdc0d3dv41u3&token=sd73hfy$dsk&card_number=4024007110595823&cvv=823&amount=30
+	<p>Example: <a href="http://mayar.abertay.ac.uk/~1405776/aberpay?api_key=s0m3h4rdc0d3dv41u3&token=sd73hfy$dsk&card_number=4024007110595823&cvv=823&amount=30">
+	http://mayar.abertay.ac.uk/~1405776/aberpay?api_key=s0m3h4rdc0d3dv41u3&token=sd73hfy$dsk&card_number=4024007110595823&cvv=823&amount=30
 	</a></p>
 </div>
 

@@ -76,7 +76,7 @@ class Url {
 
 		if (App::isLocal()) {
 
-			return 'http://localhost/business_listing/payment_gateway/process_payment.php?card_number='
+			return 'http://localhost/business_listing/aberpay?card_number='
 					.$_card_number
 					.'&token='.$_token
 					.'&amount='.$_amount
@@ -86,7 +86,7 @@ class Url {
 		} else {
 
 			
-			return 'http://mayar.abertay.ac.uk/~1405776/payment_gateway/process_payment.php?card_number='
+			return 'http://mayar.abertay.ac.uk/~1405776/aberpay?card_number='
 					.$_card_number
 					.'&token='.$_token
 					.'&amount='.$_amount
