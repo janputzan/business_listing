@@ -9,7 +9,6 @@
 		$_SESSION['wizard'] = 1;
 		$_SESSION['wizard.user_id'] = Auth::user()->id;
 
-		var_dump($_SESSION);
 		header("Location: ../pages/wizardPage.php");
 
 		return false;

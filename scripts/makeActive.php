@@ -8,8 +8,7 @@
 		header("Location: ../pages/homePage.php");
 		Message::set(array('message' => 'The page does not exist'), 'messages');
 		
-		// workaround to diplay messages on homepage
-		var_dump($_SESSION);die;
+		return false;
 	}
 
 	if (isset($_GET['business_id']) && isset($_GET['status'])) {
