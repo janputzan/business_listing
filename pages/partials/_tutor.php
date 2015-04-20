@@ -4,9 +4,9 @@
 
 	<div>
 		
-		<p>Email: admin@business.com</p>
+		<p>Email: <b>admin@business.com</b></p>
 
-		<p>Password: password</p>
+		<p>Password: <b>password</b></p>
 
 		<p>Click <a href="loginPage.php">here</a> to log in.</p>
 
@@ -28,7 +28,7 @@
 
 	<p>Payment Gateway uses the Luhn Formula to determine if the card is valid. Click <a href="http://www.freeformatter.com/credit-card-number-generator-validator.html">here</a> for more information.</p>
 
-	<p>URL to call: <a href="http://mayar.abertay.ac.uk/~1405776/payment_gateway/process_payment.php">http://mayar.abertay.ac.uk/~1405776/payment_gateway/process_payment.php</a></p>
+	<p><b>URL to call:</b> <a href="http://mayar.abertay.ac.uk/~1405776/payment_gateway/process_payment.php">http://mayar.abertay.ac.uk/~1405776/payment_gateway/process_payment.php</a></p>
 
 	<p>Required parameters:</p>
 	
